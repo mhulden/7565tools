@@ -1,0 +1,17 @@
+# This macro moves tags from anywhere in an underlying form
+# to the end, in canonical order for SIGMORPHON 2020 task 0.
+# E.g. [3][FUT][V]kala[SG] > kala[V][SG][3][FUT]
+
+def Move(X) [?* X:0 ?* 0:X | ~$X];
+
+# These all come in their right order
+
+def Canonicalize(Gr) [Gr.i .o. 
+                     Move("[V]") .o. Move("[DEF]") .o. Move("[HAB]") .o. Move("[HAB+PRF]") .o. Move("[HAB+PROG]") .o. 
+                     Move("[PRF]") .o. Move("[INDF]") .o. Move("[FIN]") .o. Move("[NFIN]") .o.
+                     Move("[SBJV]") .o. Move("[IND]") .o. Move("[PROG]") .o. Move("[HAB+PROG]") .o. Move("[IMP]") .o. Move("[COND]") .o.
+                     Move("[NEG]") .o. Move("[INTEN]") .o.
+                     Move("[SG]").o. Move("[PL]") .o.
+                     Move("[1]") .o. Move("[2]") .o. Move("[3]") .o.
+                     Move("[FUT]") .o. Move("[PRS]") .o. Move("[PST]") .o. Move("[PST+RMT]") .o. Move("[FUT+RMT]") .o. Move("[PST+RCT]") .o. Move("[FUT+IMMED]") .o. Move("[PRS+IMMED]") .o. Move("[PST+IMMED]") .o. 
+                     Move("[LGSPEC1]")].i;
