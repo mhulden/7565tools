@@ -1,0 +1,37 @@
+source canonicalize.foma
+
+
+PRF = -me-
+PRS = -na-
+PST
+FUT = -ta-
+
+COND = -nge-
+# a-  = 3 sg  wa- 3pl
+# u-  = 2 sg  m-  2pl (or mw?)
+# ni- = 1 sg  tu- 1pl
+
+all have -me-
+
+simama	amesimama	V;PRF;FIN;IND;SG;3;PST
+uza	    wameuza	    V;PRF;FIN;IND;PL;3;PST
+
+zima	aazima	V;INDF;FIN;IND;SG;3;PRS
+zima	uazima	V;INDF;FIN;IND;SG;2;PRS
+zima	niazima	V;INDF;FIN;IND;SG;1;PRS
+
+saidia	tunasaidia	V;DEF;FIN;IND;PL;1;PRS
+
+all have -a-
+ 
+
+def Alphabet [a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|r|s|t|u|v|w|y|z];
+read lexc swa.lexc
+def Stem Alphabet+;
+
+substitute defined Stem for "[STEM]"
+def Grammar;
+
+regex Canonicalize(Grammar);
+
+save stack swa.fomabin

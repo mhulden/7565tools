@@ -1,0 +1,11 @@
+def Alphabet [a|b|d|e|f|g|h|i|j|k|l|m|n|o|p|s|t|u|w|y|ŋ|ɔ|ɛ|" "];
+
+def Stem Alphabet+;
+
+regex 0:ŋ Stem ["[V]" "[PRS]"]:0 |
+      0:{baa} Stem ["[V]" "[HAB]" "[FUT]"]:0 |
+      Stem ["[V]" "[HAB]" "[NEG]" "[FUT]"|"[V]" "[HAB]" "[NEG]" "[PST]"|"[V]" "[NEG]" "[PRS]"]:{ee} |
+      Stem ["[V]" "[HAB]" "[NEG]" "[PRS]"]:{ko} |
+      Stem ["[V]" "[HAB]" "[PRS]"|"[V]" "[HAB]" "[PST]"|"[V]" "[NFIN]"]:0 ;
+
+save stack gaa.fomabin

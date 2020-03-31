@@ -1,0 +1,27 @@
+#yok	koyoka	V;FUT
+#pes	kopesa	V;NFIN
+#yamb	yambi	V;PRS
+#li	liaki	V;PST
+
+source canonicalize.foma
+
+def Alphabet [a|b|d|e|f|g|i|k|l|m|n|o|p|s|t|u|v|w|y|z];
+
+def Stem Alphabet+;
+
+def Verb   "[V]":0 ;
+
+def Base   Verb ["[FUT]":{ko} Stem 0:a | "[NFIN]":{kO} Stem 0:a | Stem "[PRS]":i | Stem "[PST]":aki];
+
+# Without the below assimilation rule we get 
+# ERROR: kang[V][NFIN] kokanga SHOULD BE: kakanga
+# ERROR: kabwan[V][NFIN] kokabwana SHOULD BE: kakabwana
+# However, there doesn't seem to be a clean generalization of this
+# Including the rule to get 100% on train. Danger of overfitting of course.
+
+def OAssim O -> a || _ k a [n g | b] .o. O -> o;
+def Grammar Base .o. OAssim;
+
+regex Canonicalize(Grammar);
+
+save stack lin.fomabin

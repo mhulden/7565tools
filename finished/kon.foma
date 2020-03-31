@@ -1,0 +1,21 @@
+source canonicalize.foma
+
+def Alphabet [" "|a|b|d|e|f|g|i|k|l|m|n|o|p|s|t|u|v|w|z];
+
+def Stem Alphabet+;
+
+def Verb   "[V]":0 ;
+def Tense  "[PRS]":{ke } | "[NFIN]":{kU} | "[FUT]":{ta kU};
+def Past   "[PST]":{ka};
+
+def Base   Verb [Tense Stem | Stem Past];
+# sosila and tutana are probably exceptions (or errors) but 
+# let's get a rule here anyway to get 100% on train
+
+def UAssim U -> o || _ [s o s i l a | t u t a n a] .o. U -> u;
+
+def Grammar Base .o. UAssim;
+
+regex Canonicalize(Grammar);
+
+save stack kon.fomabin

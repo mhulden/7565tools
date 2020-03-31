@@ -1,0 +1,58 @@
+source canonicalize.foma
+
+def Alphabet [" "|"."|a|b|d|e|f|g|h|i|k|m|n|o|p|r|s|t|u|w|y|ɔ|ɛ];
+
+def Stem  Alphabet+;
+
+def Verb   "[V]":0 ;
+
+def Grammar  Verb [
+                "[PST+IMMED]":{bɛ} Stem 0:{ee} |
+               ["[HAB]" "[PRS]"]:0 Stem |
+               ["[HAB]" "[PST]"]:0 Stem 0:{ee} |
+               ["[NEG]" "[PST+IMMED]"]:{ammbɛ} Stem |
+               ["[PRF]" "[NEG]" "[PRS]" "[LGSPEC1]"]:{nnkɔ} Stem 0:{ee} |
+               ["[HAB]" "[NEG]" "[PST]"]:{aNN} Stem |
+               ["[NEG]" "[PRS]" "[LGSPEC1]"]:{nnkɔ} Stem |
+               ["[HAB+PRF]" "[NEG]" "[PST]"]:{nna NN} Stem 0:{ee} |
+               ["[PROG]" "[PST]" "[LGSPEC1]"]:{nna rekɔ} Stem |
+               ["[PRF]" "[PRS]" "[LGSPEC1]"]:{akɔ} Stem |
+               ["[PROG]" "[PRS+IMMED]"]:{rebɛ} Stem |
+               ["[IMP]" "[NEG]" "[PRS]"]:{mma NN} Stem |
+               ["[HAB]" "[NEG]" "[FUT]"]:{reNN} Stem |
+               ["[PRF]" "[PST]" "[LGSPEC1]"]:{nna akɔ} Stem |
+               ["[PRF]" "[PST]" "[LGSPEC1]"]:{nna akɔ} Stem |
+               ["[PRF]" "[NEG]" "[PRS+IMMED]"]:{mmbɛ} Stem 0:{ee} |
+               ["[PROG]" "[NEG]" "[PST+IMMED]"]:{nna remmbɛ} Stem |
+               ["[SBJV]" "[PRS]"]:{N} Stem  |
+               ["[PST]" "[LGSPEC1]"]:{kɔ} Stem 0:{ee} |
+               ["[HAB]" "[FUT]"]:{bɛ} Stem |
+               ["[HAB+PROG]" "[NEG]" "[PST]"]:{nna reNN} Stem |
+               ["[PRF]" "[PRS+IMMED]"]:{abɛ} Stem |
+               ["[PROG]" "[NEG]" "[PRS]" "[LGSPEC1]"]:{rennkɔ} Stem |
+               ["[HAB]" "[NEG]" "[PRS]"]:{NN} Stem |
+               ["[HAB+PROG]" "[PST]"]:{nna re} Stem |
+               ["[HAB+PROG]" "[PRS]"]:{re} Stem |
+               ["[PROG]" "[NEG]" "[PST]" "[LGSPEC1]"]:{nna rennkɔ} Stem |
+               ["[HAB+PRF]" "[PRS]"]:{a} Stem |
+               ["[HAB+PRF]" "[PST]"]:{nna a} Stem |
+               ["[PROG]" "[NEG]" "[PRS+IMMED]"]:{remmbɛ} Stem |
+               ["[HAB+PRF]" "[NEG]" "[PRS]"]:{NN} Stem 0:{ee} |
+               ["[PRF]" "[NEG]" "[PST+IMMED]"]:{nna mmbɛ} Stem 0:{ee} |
+               ["[HAB+PROG]" "[NEG]" "[PRS]"]:{reNN} Stem |
+               ["[NFIN]"]:0 Stem |
+               ["[PRS]" "[LGSPEC1]"]:{kɔ} Stem |
+               ["[IMP]" "[PRS]"]:0 Stem |
+               ["[PRF]" "[NEG]" "[PST]" "[LGSPEC1]"]:{nna nnkɔ} Stem 0:{ee} |
+               ["[PROG]" "[PRS]" "[LGSPEC1]"]:{rekɔ} Stem |
+               ["[NEG]" "[PST]" "[LGSPEC1]"]:{ammkɔ} Stem |
+               ["[PRF]" "[PST+IMMED]"]:{nna abɛ} Stem |
+               ["[SBJV]" "[NEG]" "[PRS]"]:{mma NN} Stem |
+               ["[PROG]" "[PST+IMMED]"]:{nna rebɛ} Stem 
+];
+def Labial [b|f|m|p];
+def Assim N -> m \\ _ Labial .o. N -> n  ; 
+def ERemove e -> 0 || e e _ .#. ;
+regex Canonicalize(Grammar) .o. Assim .o. ERemove ;
+
+save stack aka.fomabin

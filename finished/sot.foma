@@ -1,0 +1,32 @@
+source canonicalize.foma
+
+def Alphabet [a|b|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|w|y|z];
+
+def Prefix ["[V]" "[SG]" "[1]" "[PRS]"]:{ngiya} |
+         ["[V]" "[SG]" "[1]" "[FUT]"]:{ngi} |
+         ["[V]" "[SG]" "[1]" "[PST]"]:{baya} |
+         ["[V]" "[SG]" "[2]" "[PRS]"]:{uya} |
+         ["[V]" "[SG]" "[2]" "[FUT]"]:{ni} |
+         ["[V]" "[SG]" "[2]" "[PST]"]:{ngizo} |
+         ["[V]" "[SG]" "[3]" "[PRS]"]:{uya} |
+         ["[V]" "[SG]" "[3]" "[FUT]"]:{u} |	
+         ["[V]" "[SG]" "[3]" "[PST]"]:{uzo} |	
+         ["[V]" "[PL]" "[1]" "[PRS]"]:{uya} |
+         ["[V]" "[PL]" "[1]" "[FUT]"]:{si} |
+         ["[V]" "[PL]" "[1]" "[PST]"]:{uzo} |
+         ["[V]" "[PL]" "[2]" "[PRS]"]:{siya} |
+         ["[V]" "[PL]" "[2]" "[FUT]"]:{ni} |
+         ["[V]" "[PL]" "[2]" "[PST]"]:{sizo} |
+         ["[V]" "[PL]" "[3]" "[PRS]"]:{niya} |
+         ["[V]" "[PL]" "[3]" "[FUT]"]:{ba} |
+         ["[V]" "[PL]" "[3]" "[PST]"]:{bazo} ;
+
+def Suffix ["[V]" "[NFIN]"]:{ea};
+
+def Stem Alphabet+ ;
+def Grammar [Prefix Stem]|[Stem Suffix] ;
+
+regex Canonicalize(Grammar);
+
+save stack sot.fomabin
+

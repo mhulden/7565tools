@@ -1,0 +1,21 @@
+source canonicalize.foma
+
+def Alphabet ["'"|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|r|s|t|u|v|w|y|z];
+
+def Stem Alphabet+;
+
+def Verb   "[V]":0 ;
+def Number ["[PL]" "[1]"]:{ti}  |
+           ["[PL]" "[2]"]:{mu}  |
+           ["[PL]" "[3]"]:{a}   |
+	   ["[SG]" "[1]"]:{ndi} |
+ 	   ["[SG]" "[2]"]:{mu}  |
+	   ["[SG]" "[3]"]:{a}   ;
+
+def Nfin "[NFIN]":{ku};
+def Tense "[FUT]":{dza} | "[PRS]":{ma} | "[PST]":{na} ;
+
+def Grammar   [Verb Number Tense Stem] | [Verb Nfin Stem];
+regex Canonicalize(Grammar);
+
+save stack nya.fomabin

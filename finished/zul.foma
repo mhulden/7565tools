@@ -1,0 +1,26 @@
+#bulala	  ngabulala	V;SG;1;PST+RMT
+#chasisa	ngichasise	V;SG;1;PST+RCT
+#fundisa	ngiyofundisa	V;SG;1;FUT
+#mema	ngimema	V;SG;1;PRS
+#mukela	ngizokwamukela	V;SG;1;FUT+IMMED
+
+source canonicalize.foma
+
+def Alphabet [" "|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|s|t|u|v|w|y|z];
+
+def Stem 0:"|" Alphabet+;
+
+def Verb   "[V]":0 ;
+
+def Base  Verb [["[SG]" "[1]" "[PST+RMT]"]:{nga} |
+           ["[SG]" "[1]" "[PST+RCT]"]:{ngiX} |
+           ["[SG]" "[1]" "[FUT]"]:{ngiyo} |
+           ["[SG]" "[1]" "[PRS]"]:{ngi} |
+           ["[SG]" "[1]" "[FUT+IMMED]"]:{ngizo}]
+		   	   [Stem];
+
+def Grammar  Base .o. a -> e || X ?* _ .#. , X ?* _ ?* " " .o. X -> 0 .o. "|" -> k w a || n g [a|i] ?* _  z .o. "|" -> 0;
+
+regex Canonicalize(Grammar);
+
+save stack zul.fomabin
