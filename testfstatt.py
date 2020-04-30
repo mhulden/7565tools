@@ -19,6 +19,8 @@ if os.path.isfile(lang + ".lex.att"):
     
 evallines = [l.strip() for l in open(lang + ".tst")]
 
+outfile = open(lang + ".out", "w")
+
 for l in evallines:
     lemma, tags = l.split('\t')
     tstring = tagstobrackets(tags)
@@ -35,4 +37,6 @@ for l in evallines:
             eprint("Warning: ", lemma, tags, "has no output! Repeating lemma.")
         else:
             guess = guesses[0][0]
+    outfile.write(lemma + "\t" + guess + "\t" + tags + "\n")
+
 
