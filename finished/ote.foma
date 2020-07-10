@@ -1,0 +1,601 @@
+source canonicalize.foma
+def Alphabet [% |%(|%)|%-|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|r|s|t|u|v|w|x|y|z|%²|%¹|á|ä|ë|í|ï|ñ|ü|ʔ|ẹ|ọ|ụ|%'|%`|%’] ;
+def Lemma Alphabet+ ;
+	  
+def Verb "[V]":0 ;
+def RegularRules Verb [ ["[IRR]" "[SG]" "[1]"]:{ga } |
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[IRR]" "[SG]" "[3]"]:{da } |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí } |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[PRF]" "[3]" "[PST]"]:{xki } |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi }] Lemma ;
+
+#Some get ʔ some get ʔñ this list may get update.
+def LemmaGSN {ʔyo²}|{ʔyo²-mfọ}|{ʔyo²-mxu²di};
+def RulesGSN Verb [["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		  ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí } |
+		  ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí }  |
+		  ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí }  |
+		  ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí }  |
+    	     	  ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔñ}|
+		  ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔñ}|
+		  ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔñ} |
+		  ["[PRF]" "[1]" "[PST]"]:{stí ʔñ}       |
+		  ["[PRF]" "[2]" "[PST]"]:{xkí ʔñ}       |
+		  ["[PRF]" "[3]" "[PST]"]:{xki ʔñ}       |
+		  ["[IRR]" "[SG]" "[1]"]:{ga ʔñ}	 |
+		  ["[IRR]" "[SG]" "[2]"]:{gi ʔñ} 	 |
+		  ["[IRR]" "[SG]" "[3]"]:{da ʔñ} 	 |
+		  ["[PFV]" "[SG]" "[1]"]:{dá ʔñ}         |
+		  ["[PFV]" "[SG]" "[2]"]:{gá ʔñ}         |
+		  ["[PFV]" "[SG]" "[3]"]:{bi ʔñ}] LemmaGSN ;
+
+#These lemmas get a ʔy
+def LemmaGSY {ai}|{aki}|
+{ani}|{at’i}|{e¹²st’e}|{ẹi}|{ẹni}|{ẹt’i}|{o¹²}|{ọ²ke}|
+{o²t’i}|{ọ²ʔtse}|{o²ts’i}|{ofo}|{ọt’a²-hu¹²di}|
+{ọte}|{ọt’e}|{ọthe}|{u¹²ts’i}|{ụ¹²ts’i}|{ʔyo²}|{ʔyo²-mfọ}|{ʔyo²-mxu²di} ;
+def RulesGSY Verb [["[IPFV]""[SG]""[1]""[PRS]"]:{dí ʔy}    |
+    	     	   ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔy}|
+		   ["[IPFV]""[SG]""[2]""[PRS]"]:{gí ʔy}    |
+		   ["[IPFV]""[SG]""[2]""[PST]"]:{ngí ʔy}   |
+		   ["[IPFV]""[SG]""[3]""[PST]"]:{mí ʔy}    |
+		   ["[IRR]""[SG]""[1]"]:{ga ʔy}            |
+		   ["[IRR]" "[SG]" "[2]"]:{gi ʔy}          |
+		   ["[IRR]" "[SG]" "[3]"]:{da ʔy}          |
+		   ["[PFV]" "[SG]" "[1]"]:{dá ʔy}          |
+		   ["[PFV]" "[SG]" "[2]"]:{gá ʔy}          |
+		   ["[PFV]" "[SG]" "[3]"]:{bi ʔy}          |
+		   ["[PRF]" "[1]" "[PST]"]:{stí ʔy}       |
+		   ["[PRF]" "[2]" "[PST]"]:{xkí ʔy}       |
+		   ["[PRF]" "[3]" "[PST]"]:{xki ʔy}        |
+		   ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔy} |
+		   ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔy} |
+		   ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔy}] LemmaGSY ;
+
+#These onlt get a ʔ. This will probably update.
+def LemmasGSonly {ä¹²ni}|{ä¹²st’i}|{a²k-hñu²ni}|{a²k-sei}|{a²spi}|{ä²t’i}|{a²xa²-hai}|{a²yu²nä}|{ai}|{aki}|{ambi}|{ani}|{änt’i}|{at’i}|{ät’i}|{ats’i}|{e¹²ni}|{e¹²n-sẹ}|{e¹²nthi}|{e¹²st’e}|{e¹²tsua}|{ẹi}|{ẹt’i}|{ẹʔtsi}|{i¹²gi}|{i¹²ni}|{i¹²t’i}|{i¹²xki}|{i²}|{i²nga²-du²tu}|{it’i}|{jua²-sẹ¹²hẹ}|{kue²ke}|{o¹²}|{o²di}|{ọ²ke}|{ọ²t’a²-do¹²ndo}|{ọ²t’a²-ge¹²rra}|{ọ²t’a²-nde²he}|{ọ²te}|{o²t’i}|{ọ²ʔtse}|{ọ²ts’e}|{o²ts’i}|{ofo}|{oki}|{ọt’a²-hu¹²di}|{ọte}|{ọt’e}|{ọthe}|{oʔtsi}|{u¹²ni}|{ụ¹²ni}|{ụ¹²-tsa}|{u¹²ts’i}|{ụ¹²ts’i}|{ụ²}|{u²di}|{u²nga²-ngüẹ¹²nda}|{u²nga²-nt’ọde}|{u²ni}|{ụ²-ʔta}|{u²t’a²-nä¹²ni}|{u²ti}|{u²ʔti}|{u²ʔtsi}|{ugi}|{ut’i} ;
+
+def RulesGSonly Verb [["[IPFV]""[SG]""[1]""[PRS]"]:{dí ʔ} |
+    		     ["[IPFV]""[SG]""[3]""[PRS]"]:{ʔ}     |
+    	     	   ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔ}|
+		   ["[IPFV]""[SG]""[2]""[PRS]"]:{gí ʔ}    |
+		   ["[IPFV]""[SG]""[2]""[PST]"]:{ngí ʔ}   |
+		   ["[IPFV]""[SG]""[3]""[PST]"]:{mí ʔ}    |
+		   ["[IRR]""[SG]""[1]"]:{ga ʔ}            |
+		   ["[IRR]" "[SG]" "[2]"]:{gi ʔ}          |
+		   ["[IRR]" "[SG]" "[3]"]:{da ʔ}          |
+		   ["[PFV]" "[SG]" "[1]"]:{dá ʔ}          |
+		   ["[PFV]" "[SG]" "[2]"]:{gá ʔ}          |
+		   ["[PFV]" "[SG]" "[3]"]:{bi ʔ}          |
+		   ["[PRF]" "[1]" "[PST]"]:{stí ʔ}        |
+		   ["[PRF]" "[2]" "[PST]"]:{xkí ʔ}        |
+		   ["[PRF]" "[3]" "[PST]"]:{xki ʔ}        |
+		   ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔ} |
+		   ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔ} |
+		   ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔ}] LemmasGSonly ;
+
+def SpecLemmaVowelChange1 {ʔñe²he} ;
+def SpecLemma1Fix SpecLemma1 -> ʔñëhë ;
+def SpecLemmaVChangeRules1 Verb [["[PFV]""[SG]""[2]"]:{gá }|
+    		      ["[IPFV]""[SG]""[1]""[PRS]"]:{dí }   |
+		      ["[IPFV]""[SG]""[2]""[PRS]"]:{gí }   |
+		      ["[IPFV]""[SG]""[2]""[PST]"]:{ngí }  |
+		      ["[IPFV]""[SG]""[3]""[PST]"]:{mí }   |
+		      ["[PRF]""[SG]""[1]""[PRS]"]:{stá }   |
+		      ["[PRF]""[SG]""[2]""[PRS]"]:{xká }   |
+		      ["[PRF]""[SG]""[3]""[PRS]"]:{xa }    |
+		      ["[PRF]""[1]""[PST]"]:{stí }    	   |
+		      ["[IRR]""[SG]""[1]"]:{ga }	   |
+		      ["[IRR]""[SG]""[3]"]:{da }] SpecLemmaVowelChange1 .o. SpecLemmaVChange1 ;
+
+#Some get ʔ some get ʔy
+def SpecLemmaVowelStartMixGS1 {a} | {a²xa²-hai} | {a²yu²nä} | {ai} | {aki} | {ambi} | {ani} | {at’i} | {ats’i} | {ets’e} ;
+
+def SpecLemmaVowelStartMixGSRules1 Verb
+    		 [["[IRR]" "[SG]" "[1]"]:{ga ʔ} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi ʔy} |
+		 ["[IRR]" "[SG]" "[3]"]:{da ʔy} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔ} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔy} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔy}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí ʔ} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí ʔy} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki ʔy} |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔ}|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí ʔ}|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí ʔ} |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí ʔ} |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí ʔ} |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:{ʔ}    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá ʔ}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá ʔy}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi ʔy}] SpecLemmaVowelStartMixGS1 ;
+
+#Some get ʔ some get ʔñ if the lemma starts with e it'll change to ë 
+def SpecLemmaVowelChange2 {a²k-hñu²ni}|
+{a²spi}|{e¹²mbi}  ;
+
+def eFix e -> ë || .#. (?) (?) (?) " " [ʔ | {ʔñ}] _ ;
+def SpecLemmaVowelStartMixGSRules2 Verb
+    		 [ ["[IRR]" "[SG]" "[1]"]:{ga ʔ}	|
+	         ["[IRR]" "[SG]" "[2]"]:{gi ʔñ}    	|
+		 ["[IRR]" "[SG]" "[3]"]:{da ʔñ}		|
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔ} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔñ}|
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔñ} |
+		 ["[PRF]" "[1]" "[PST]"]:{stí ʔ}        |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí ʔñ}       |
+		 ["[PRF]" "[3]" "[PST]"]:{xki ʔñ}       |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔ}|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí ʔ}|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí ʔ} |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí ʔ} |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí ʔ} |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:{ʔ}    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá ʔ}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá ʔñ}         |
+		 ["[PFV]" "[SG]" "[3]"]:{bi ʔñ}] SpecLemmaVowelChange2 .o. eFix ;
+
+#Som get ʔ some get ʔy but different than SpecLemmaVowelStartMixGS1
+def SpecLemmaVowelStartMixGS2 {ehni} | {ent’i} | {e²ke} | {e¹²ʔtse} ;
+def SpecLemmaVowelStartMixGSRules3 Verb
+    		 [["[IRR]" "[SG]" "[1]"]:{ga ʔ} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi ʔy} |
+		 ["[IRR]" "[SG]" "[3]"]:{da ʔy} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔ} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔy} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔy}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí ʔ} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí ʔ} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki ʔy} |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔ}|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí ʔ}|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí ʔ} |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí ʔ} |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí ʔ} |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:{ʔ}    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá ʔ}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá ʔy}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi ʔy}] SpecLemmaVowelStartMixGS2 ;
+
+
+#These get an n added to the lemma
+def addNLemmas {the²-sẹ¹²hẹ} | {the²de} | {the²n-the} | {thi²ʔtsi} |
+{xa²n-the} | {xa²s-te} | {xadi} | {xi²s-te¹²he} | {xo²fo} |{xo²s-thu¹²hu} | {xụ²-ʔyẹ} | {xuni} ;
+def AddN Verb [["[IRR]""[SG]""[1]"]:{ga n} 	     |
+    	      ["[IRR]""[SG]""[2]"]:{gi n}            |
+	      ["[IRR]""[SG]""[3]"]:{da n}            |
+	      ["[PFV]""[SG]""[1]"]:{dá n}            |
+	      ["[PFV]""[SG]""[2]"]:{gá n}            |
+	      ["[PFV]""[SG]""[3]"]:{bi n}            |
+	      ["[PRF]" "[1]" "[PST]"]:{stí n} 	     |
+	      ["[PRF]" "[2]" "[PST]"]:{xkí n} 	     |
+	      ["[PRF]" "[3]" "[PST]"]:{xki n}	     |
+	      ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá n} |
+	      ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká n} |
+	      ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa n}] addNLemmas ;
+
+#These have some nhy starts. One set will be regular one will be nhy
+def hTOnhyLemmas {ha²ha}|{ha²-ne}|{ha²-ne} | {ha²-te} | {has-tai} | {he²he} |
+{hẹ²ka²-ndäpo} | {hẹ²n-the} | {hẹ²n-za} | {he²ts’e} |{hi} | {họ²-ndgu} |
+{họ²ndri} |{ho²nga²-ʔyo} |{ho²-te} |{họ²x-gi²ni} |{họ²x-yä} |{ho²-ʔyo} |{hya} |{hya²ʔnga} |{hyo²-ya} ;
+
+
+def notNHY Verb [
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0] hTOnhyLemmas ;
+
+
+def hFix h -> nhy || .#. (?) (?) (?) " " _ ;
+def addNHY Verb   [
+    	     	  ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá }|
+		  ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká }|
+		  ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa } |
+		  ["[PRF]" "[1]" "[PST]"]:{stí }       |
+		  ["[PRF]" "[2]" "[PST]"]:{xkí }       |
+		  ["[PRF]" "[3]" "[PST]"]:{xki }       |
+		  ["[IRR]" "[SG]" "[1]"]:{ga }	 |
+		  ["[IRR]" "[SG]" "[2]"]:{gi } 	 |
+		  ["[IRR]" "[SG]" "[3]"]:{da } 	 |
+		  ["[PFV]" "[SG]" "[1]"]:{dá }         |
+		  ["[PFV]" "[SG]" "[2]"]:{gá }         |
+		  ["[PFV]" "[SG]" "[3]"]:{bi }] hTOnhyLemmas .o. hFix ;
+
+
+def tLemmas {tä¹²}|{ta¹²ha}|{tä¹²hä}|{tä¹²ki}|{ta²gi}|{ta²ki}|{ta²st’i}|{tai}|{taki}|{täki}|{tänt’i}|{tẹ}|{te¹²ge}|
+{tẹ¹²hẹ}|{tẹ¹²xi}|{te²hmi}|{tẹ²ʔmi}|{tẹ²ni}|{tẹ²t’i}|{teke}|{tet’e}|{tets’e}|{thädi}|{thani}|{that’i}|
+{thät’i}|{thẹki}|{thẹ-nde}|{theni}|{thẹts’i}|{thi¹²nt’i}|{thi²ts’i}|{thini}|{thọge}|{thoki}|{thont’i}|
+{thoʔti}|{thụni}|{thuts’i}|{thuui}|{ti¹²ni}|{ti¹²ts’i}|{ti²ki}|{ti²ʔti}|{to¹²nts’i}|{tọ¹²t’e}|{to²ki}|
+{tọ²ʔmi}|{to²ʔti}|{to²t’i}|{tọ²ʔtse}|{toʔmi}|{tu}|{tu¹²}|{tụ¹²ni}|{tu¹²ti}|{tu¹²ts’i}|{tu²ki}|{tụ²ki}|
+{tu²ʔti}|{tụ²ʔtsi}|{tụhụ}|{tut’i}|{tuʔtsi} ;
+
+def tLemmasRegular Verb [ ["[IRR]" "[SG]" "[1]"]:{ga } |
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[1]" "[PST]"]:{stí } |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }]  tLemmas ;
+
+def tTOdFix [t|t h] -> d || .#. (?) (?) (?) " " _ ;
+def tTOdRules Verb [["[IRR]" "[SG]" "[3]"]:{da }|
+["[PRF]" "[3]" "[PST]"]:{xki }|
+["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }|
+["[PFV]" "[SG]" "[3]"]:{bi }] tLemmas .o. tTOdFix ;
+
+#Some paradigms the k changes to g
+
+def kTOgLemmas {kä¹²}|{kä¹²xi}|{kä²i}|{kä²ki}|{ka²mfri}|{kä²ʔmi}|{kä²t’i}|{kai}|{kat’i}|{kät’i}|{kaʔtsi}|{kats’i}|{käts’i}|{kọ¹²st’e}|{ko¹²st’i}|{ko¹²ts’i}| {ko²ti} | {{kọ¹²xke}|{kọ²de}|{ko²hi}|{ko²ʔmi}|{ko²t’i}|{koh-wi}|{kọni}|{koʔtsi}|{kụ¹²hni}|{kụ¹²ts’i}|{kụi}|{kụni}|{kunt’ẹi}|{kuui} ;
+
+def kRegular Verb [ ["[IRR]" "[SG]" "[1]"]:{ga } |
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[1]" "[PST]"]:{stí } |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }
+		 ] kTOgLemmas ;
+
+def kTOgFix k -> g || .#. (?) (?) (?) " " _ ;
+def kTOg Verb [ ["[IRR]" "[SG]" "[3]"]:{da } |
+    	       ["[PFV]" "[SG]" "[3]"]:{bi } |
+	       ["[PRF]" "[3]" "[PST]"]:{xki } |
+	       ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }] kTOgLemmas .o. kTOgFix ;
+
+def fLemmas {fa²s-te}|{fa²-ʔyo}|{fẹ²ta²-te}|{fọ²ge}|{fo²nt’i}|{fụ²x-hwä²hi} ;
+def fLemmasRegular Verb [["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		        ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		        ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		        ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		        ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		        ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0 ] fLemmas ;
+			
+def fTOmf Verb [ ["[IRR]" "[SG]" "[1]"]:{ga m} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi m} |
+		 ["[IRR]" "[SG]" "[3]"]:{da m} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá m} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká m} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa m}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí m} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí m} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki m} |
+		 ["[PFV]" "[SG]" "[1]"]:{dá m}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá m}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi m}] fLemmas ;
+
+def fTOmonlyLemmas {fadi} | {fani} | {fati} | {fat’i} | {fats’i} | {fẹi} |
+	       {fẹki} | {fẹʔmi} | {fẹti} | {fẹt’i} | {fẹʔtsi} | {fọt’e} | {fọts’e} | {fụ²di} | {fụti} ;
+
+def fTOmRegular Verb [["[IRR]" "[SG]" "[1]"]:{ga } |
+	               ["[IRR]" "[SG]" "[2]"]:{gi } |
+		       ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		       ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		       ["[PRF]" "[1]" "[PST]"]:{stí } |
+		       ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		       ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		       ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		       ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		       ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		       ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		       ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		       ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		       ["[PFV]" "[SG]" "[2]"]:{gá }] fTOmonlyLemmas ;
+		       
+def fTOmFix f -> m || .#. (?) (?) (?) " " _ ;
+def fTOmonly Verb [ ["[IRR]" "[SG]" "[3]"]:{da } |
+    	            ["[PFV]" "[SG]" "[3]"]:{bi } |
+	            ["[PRF]" "[3]" "[PST]"]:{xki } |
+	            ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }] fTOmonlyLemmas .o. fTOmFix ;
+
+def hTOhnLemmas {hä¹²mpi}|{hä¹²ts’i}|{hä²}|{hä²-thä}|{hä²ʔtsui}|{häʔti}|{he²t’ä-nthä¹²hi}|{he²t’i}|{hegi}|
+{hei}|{heki}|{hembi}|{hen-thä¹²hi}|{hest’i}|{het’i}|{heʔtsi}|
+{hu²-hme}|{hu²ʔmbi}|{hu²mụi}|{hụ²xi}|{huʔtsi}|{huts’i}|{hụ²xi} ;
+
+def hTOhnFix h -> {hñ} || .#. (?) (?) (?) " " _  ;
+def hTOhnVowelFixA a -> ä  || ñ _ ;
+def hTOhnVowelFixE e -> ë  || ñ _ ;
+def hTOhnVowelFixU u -> ü  || ñ _ ;
+def hTOhn Verb  [ ["[IRR]" "[SG]" "[1]"]:{ga } |
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[IRR]" "[SG]" "[3]"]:{da } |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí } |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[PRF]" "[3]" "[PST]"]:{xki } |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi }] hTOhnLemmas .o. hTOhnFix .o. hTOhnVowelFixA .o. hTOhnVowelFixE .o. hTOhnVowelFixU  ;
+
+def gLemmas {ga²ni} | {ga²-ʔnthä} | {gä²ʔtsi} | {ge²} | {go²fo} | {go²-gu} | {go²ne} ;
+
+def gLemmasaddn Verb [ ["[IRR]" "[SG]" "[1]"]:{ga n} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi n} |
+		 ["[IRR]" "[SG]" "[3]"]:{da n} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá n} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká n} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa n}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí n} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí n} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki n} |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá n}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá n}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi n}] gLemmas ;
+
+def gsmixgsn {ä¹²tsi}|{ä¹²xi}|{a²fi}|{ä²hä}|{a²ka²-te}|{a²k-hñu²ni}|{a²k-sei}|{a²-ma²ñʔụ}|{a²n-sei}|{a²ʔ-thä}|{a²-the}|{ä²x-ʔyo}|{ägi}|{äkui}|{äni}|{e¹²di}|{e¹²nä}|{e¹²ts’i}|{e¹²tsua (ra² nsu)}|{e²-bru}|{e²gi}|{e²he}|{e²h-ya}|{e²k’ua¹²-mba}|{e²kua²bi}|{e² mbi¹²da}|{e²-ñä}|{ẹ²n-do}|{ẹ²n-sagi}|{ẹ²nt’a²-hme}|{ẹ²nte}|{ẹ²nts’a²-pa}|{ẹ²nts’a²-te}|{ẹ²te}|{ẹ²-ʔt-fi}|{e²t’i}|{e²ʔtsa²-te}|{e²ʔtsi}|{edi}|{ei}|{emei}|{eni}|{ẹ-ʔuada}|{o²k-jä}|{ọ²nä²-te}|{ọ²t’a²-ʔbai}|{ọ²t’a²-bu¹²hla}|{ọ²t’a²-ngo}|{o²-tho}|{o²xi}|{o-fa²di}|{u¹²di}|{u¹²st’i}|{u¹²t’i}|{ụ²-ngu}|{ụ²n-te}|{u²-spi}|{ụ²ta²-te}|{u²ʔ-thyä}|{ụi}|{upi}|{uʔtsi} ;
+
+def gsmixgsnRules Verb [ ["[IRR]" "[SG]" "[1]"]:{ga ʔ} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi ʔñ} |
+		 ["[IRR]" "[SG]" "[3]"]:{da ʔñ} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔ} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔñ} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔñ}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí ʔ} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí ʔñ} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki ʔñ} |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔ}|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí ʔ}|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí ʔ} |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí ʔ} |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí ʔ} |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:{ʔ}    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá ʔ}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá ʔñ}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi ʔñ}] gsmixgsn .o. eFix;
+
+#Some lemmas that start with get an n for some paradigms
+def dLemmas {dä²hñei}|{dä²nts’i}|{da²ʔthi}|{dẹ²-spi}|{do²-ʔyẹ} ;
+
+def dStartAddN Verb [ ["[IRR]" "[SG]" "[1]"]:{ga n} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi n} |
+		 ["[IRR]" "[SG]" "[3]"]:{da n} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá n} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká n} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa n}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí n} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí n} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki n} |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá n}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá n}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi n}] dLemmas ;
+
+def hLemmas {ha¹²t’i}|{ha¹²ts’i}|{ha²ni}|{hahni}|{hant-hyä}|{he¹²ʔte}|{hẹ²hni}|{he²ke}|{hẹ²ki}|{he²te}|{hẹ²t’i}|{hẹ²ʔtsi}|{hẹgi}|{ho²ki}|{họ²ʔ-thä}|{họ²ts’e}|{hụ²ʔti}|{hụ²ʔtsi}|{hụst’i} ;
+
+def hLemmasRegular Verb [["[IRR]" "[SG]" "[1]"]:{ga } |
+		          ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		          ["[PRF]" "[1]" "[PST]"]:{stí } |
+		          ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		          ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		          ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		          ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		          ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		          ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		          ["[PFV]" "[SG]" "[1]"]:{dá }] hLemmas ;
+
+def hTOhy h -> hy || .#. (?) (?) (?) " "  _ ;
+def hTOhyRules Verb [["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[IRR]" "[SG]" "[3]"]:{da } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }  |
+	         ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[PRF]" "[3]" "[PST]"]:{xki } |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }   |
+		 ["[PFV]" "[SG]" "[3]"]:{bi }] hLemmas .o. hTOhy ;
+		 
+def pTOmpLemmas {pa²-dẹthä}|{pa²mʔi}|{pa²ʔ-nthä}|{pa²nthi}|{pọ²n-jụ} ;
+def pTOmpRegular Verb [["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		       ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		       ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		       ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		       ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		       ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    ] pTOmpLemmas ;
+
+def pTOmpRules Verb [ ["[IRR]" "[SG]" "[1]"]:{ga m} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi m} |
+		 ["[IRR]" "[SG]" "[3]"]:{da m} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá m} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká m} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa m}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí m} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí m} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki m} |
+		 ["[PFV]" "[SG]" "[1]"]:{dá m}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá m}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi m}] pTOmpLemmas ;
+
+def thADDnLemmas {tsa²ʔni}|{tsa²n-te}|{ts’a²t’i}|{tsa²-ya}|{tsẹ²ka²-za¹²}|{tsẹ²-nza}|{tsẹ²-za}|{tsi²-ʔyụi}|{ts’ok’-ba²ha}|{tsụ¹²}|{tsụ¹²-jụ²mhai}|{tsụ²-dẹ²nxi}|{tsụ²mʔi}|{tsụ²-thä}|{tsụ²-t’yụi};
+
+def thADDnRegular Verb [["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		       ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		       ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		       ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		       ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		       ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    ] thADDnLemmas ;
+
+def thADDnRules Verb [ ["[IRR]" "[SG]" "[1]"]:{ga n} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi n} |
+		 ["[IRR]" "[SG]" "[3]"]:{da n} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá n} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká n} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa n}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí n} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí n} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki n} |
+		 ["[PFV]" "[SG]" "[1]"]:{dá n}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá n}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi n}] thADDnLemmas ;
+
+def hLemmas2 {hä¹²ni}|{hä¹²xi}|{hä²kua²bi}|{hä²mbi}|{häi}|{häʔmi}|{he¹²}|{he²ʔti}|{hñä²mbä²-nt’ẹi}|{hu}|{hu¹²hni}|{hu²di}|{hu²ʔti}|{hyẹ¹²hẹ} ;
+
+def hLemmas2nAFTERhRules Verb [ 
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[IRR]" "[SG]" "[3]"]:{da } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }  |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[PRF]" "[3]" "[PST]"]:{xki } |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi }] hLemmas2 .o. hTOhnFix  ;
+
+def hLemmas2Regular Verb
+    		    [["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		     ["[PRF]" "[1]" "[PST]"]:{stí }        |
+		     ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		     ["[IRR]" "[SG]" "[1]"]:{ga }          |
+		     ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		     ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		     ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		     ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		     ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		     ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0] hLemmas2 ;
+		     
+def addGSY2 {a¹²ni}|{a²ki}|{a²t’i}|{a²ʔtsi}|{adi}|{agi}|{aʔmi}|{ẹ²gi}|{ẹgi}|{ẹkua²bi}|{ẹnt’i}|{ẹnts’i}|{ẹts’i}|{o¹²ti}|{o¹²ts’i}|{ọ²ge}|{o²ki}|{ọ²ʔte}|{o²ʔtsi}|{ọde}|{ohni}|{ọni}|{ot’i}|{ọts’e}|{ụ²ʔti}|{ụ²t’i}|{ụʔti} ;
+
+def GSY2Rules Verb [ 
+	         ["[IRR]" "[SG]" "[2]"]:{gi ʔy} |
+		 ["[IRR]" "[SG]" "[3]"]:{da ʔy} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká ʔy} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa ʔy}  |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí ʔy} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki ʔy} |
+		 ["[PFV]" "[SG]" "[2]"]:{gá ʔy}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi ʔy}] addGSY2 ;
+
+def GSY2Rules2 Verb
+    		    [["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá ʔ} |
+		     ["[PRF]" "[1]" "[PST]"]:{stí ʔ}        |
+		     ["[PFV]" "[SG]" "[1]"]:{dá ʔ}          |
+		     ["[IRR]" "[SG]" "[1]"]:{ga ʔ}          |
+		     ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí ʔ}|
+		     ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí ʔ}|
+		     ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí ʔ} |
+		     ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí ʔ} |
+		     ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí ʔ} |
+		     ["[IPFV]" "[SG]" "[3]" "[PRS]"]:{ʔ}] addGSY2 ;
+
+#in most 3p forms the p changes to m
+def pTOm {pa¹²nts’i}|{pa²ʔmbi}|{pa²t’i}|
+{pant’i}|{past’i}|{pe¹²ngi}|{pi¹²ts’i}|{pọ²ke}|{pụ¹²ki};
+
+def pTOmRegular Verb [ ["[IRR]" "[SG]" "[1]"]:{ga } |
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[1]" "[PST]"]:{stí } |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }] mTOp ;
+
+def pTOmFix p -> m ;
+def pTOmRules Verb [["[PFV]" "[SG]" "[3]"]:{bi }          |
+                    ["[PRF]" "[3]" "[PST]"]:{xki }        |
+                    ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }  |
+                    ["[IRR]" "[SG]" "[3]"]:{da }] pTOm .o. pTOmFix ;
+
+def addnTOjLemmas {jua²ts’i} | {jo²ʔo} ;
+def addnTOjRegular Verb [["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		       ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		       ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		       ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		       ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		       ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0] addnTOjLemmas ;
+		       
+def addnTOjRules Verb [ ["[IRR]" "[SG]" "[1]"]:{ga n} |
+	         ["[IRR]" "[SG]" "[2]"]:{gi n} |
+		 ["[IRR]" "[SG]" "[3]"]:{da n} |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá n} |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká n} |
+		 ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa n}  |
+		 ["[PRF]" "[1]" "[PST]"]:{stí n} |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí n} |
+		 ["[PRF]" "[3]" "[PST]"]:{xki n} |
+		 ["[PFV]" "[SG]" "[1]"]:{dá n}          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá n}          |
+		 ["[PFV]" "[SG]" "[3]"]:{bi n}] addnTOjLemmas ;		      
+
+def tsTOzLemmas {tsä²t’i}|{tsẹ²ki}|{tsi}|{tsi²ʔti}|{tsots’i} ;
+
+def tsTOzRegular Verb [ ["[IRR]" "[SG]" "[1]"]:{ga } |
+	         ["[IRR]" "[SG]" "[2]"]:{gi } |
+		 ["[PRF]" "[SG]" "[1]" "[PRS]"]:{stá } |
+		 ["[PRF]" "[SG]" "[2]" "[PRS]"]:{xká } |
+		 ["[PRF]" "[1]" "[PST]"]:{stí } |
+		 ["[PRF]" "[2]" "[PST]"]:{xkí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PST]"]:{ndí }|
+		 ["[IPFV]" "[SG]" "[2]" "[PST]"]:{ngí }|
+		 ["[IPFV]" "[SG]" "[3]" "[PST]"]:{mí } |
+		 ["[IPFV]" "[SG]" "[1]" "[PRS]"]:{dí } |
+		 ["[IPFV]" "[SG]" "[2]" "[PRS]"]:{gí } |
+		 ["[IPFV]" "[SG]" "[3]" "[PRS]"]:0    |
+		 ["[PFV]" "[SG]" "[1]"]:{dá }          |
+		 ["[PFV]" "[SG]" "[2]"]:{gá }] tsTOzLemmas ;
+
+def tsTOzFix {ts} -> z || .#. (?) (?) (?) " " _ ;
+def tsTOzRules Verb [["[PFV]" "[SG]" "[3]"]:{bi }         |
+                    ["[PRF]" "[3]" "[PST]"]:{xki }        |
+                    ["[PRF]" "[SG]" "[3]" "[PRS]"]:{xa }  |
+                    ["[IRR]" "[SG]" "[3]"]:{da }] tsTOzLemmas .o. tsTOzFix ;
+
+
+
+def Cleanup [%²|%¹|%-|%'|%`] -> 0 ;
+def Grammar [[RulesGSN | SpecLemmaVChange1Rules | SpecLemmaVowelStartMixGSRules1 | SpecLemmaVowelStartMixGSRules2 | SpecLemmaVowelStartMixGSRules3 | RulesGSY | RulesGSonly | notNHY | addNHY | AddN | tLemmasRegular | tTOdRules | kRegular | kTOg | fLemmasRegular | fTOmf | fTOmRegular | fTOmonly | hTOhn | gLemmasaddn | gsmixgsnRules | dStartAddN | hLemmasRegular | hTOhyRules | pTOmpRegular | pTOmpRules | thADDnRegular | thADDnRules | hLemmas2nAFTERhRules | hLemmas2Regular | GSY2Rules | GSY2Rules2 | pTOmRegular | pTOmRules | addnTOjRegular | addnTOjRules | tsTOzRegular | tsTOzRules ] .P. RegularRules] .o. Cleanup ;
+regex Canonicalize(Grammar) ;
+#watt > ote.att
+save stack ote.fomabin

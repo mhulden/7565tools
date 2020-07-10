@@ -1,0 +1,20 @@
+source canonicalize.foma
+
+def Alphabet [% |%(|%)|%+|%-|%=|a|b|d|e|f|g|h|i|j|k|m|n|o|p|r|s|t|u|w|x|y|z|²|¹|á|ä|ë|í|ï|ø|ʉ|ʔ|ạ|ẹ|’];
+
+def Remove [%-|¹|²|%=] ->0 //Alphabet+ %  Alphabet* _;
+
+def Removen n -> 0 || % _=;
+
+read lexc otm.lexc
+
+def Lex;
+
+reg Canonicalize(Lex) .o. Removen .o. Remove;
+
+#watt > otm.lex.att
+
+#read att otm.lex.att
+
+#watt > otm.lex.att
+save stack otm.lex.fomabin

@@ -1,0 +1,13 @@
+source canonicalize.foma
+
+
+def Alphabet ["'"|"-"|A|a|b|c|d|e|f|g|h|i|k|m|n|o|r|s|t|u|w|y];
+
+def Stem Alphabet+;
+
+regex 	0:[g a] Stem ["[V]" "[PST]"]:0 |
+		0:[n a] Stem ["[V]" "[FUT]"]:0 |
+	 	Stem ["[V]" "[PRS]"]:0 ;
+
+save stack dje.fomabin
+#watt > /home/akanksha/projectComp/dje.att

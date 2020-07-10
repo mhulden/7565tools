@@ -1,0 +1,63 @@
+def Tags "[V]" | "[AGFOC]" | "[PFOC]" | "[PFV]" | "[IPFV]" | "[LGSPEC1]" | "[NFIN]" | "-in-" | "-um-" | "-in" | "nag-" | "i-" | "-an" | "mag-" | "na-" | "ma-" | "nang-" | "mang-" | "naka-" | "maka-" | "nan-" | "man-" | "ni-" | "|" | R;
+
+def Alphabet [% |%'|%-|a|b|d|e|g|h|i|k|l|m|n|o|p|r|s|t|u|w|y|á|í|ó|ú];
+def C [b|d|g|h|k|l|m|n|p|r|s|t|w];
+def V [a|e|i|o|u|y|á|í|ó|ú];
+
+read lexc tgl.lexc
+def Lex;
+
+def InsertHyphen [..] -> "-" || .#. [m|n] a g _ V;
+
+# Before Reduplication
+def RedupMark   (C | n g) V @-> %< ... %> || .#. _ ?* R;
+def RedupInsert [..] -> %< (C | n g) V %> || .#. _ %<;
+
+# útot[V][PFOC][LGSPEC1] úútot|inR-in
+
+# After Reduplication
+def Destress ú -> u || %< C* _ %> %< C* ú %> .o. 
+             á -> a || %< C* _ %> %< C* á %> .o. 
+			 í -> i || %< C* _ %> %< C* í %> .o. 
+			 ó -> o || %< C* _ %> %< C* ó %> ;
+			 
+#def KtoG     k -> g || %< _ ?* ["man-"|"nan-"];
+
+def NAGp  [..] -> n a g "-" || .#. _ ?* "nag-" ;
+def MAGp  [..] -> m a g "-" || .#. _ ?* "mag-" ;
+def NAp   [..] -> n a || .#. _ ?* "na-" ;
+def MAp   [..] -> m a || .#. _ ?* "ma-" ;
+def NANGp [..] -> n a n g "-" || .#. _ ?* "nang-" ;
+def MANGp [..] -> m a n g "-" || .#. _ ?* "mang-" ;
+def NAKAp [..] -> n a k a || .#. _ ?* "naka-" ;
+def MAKAp [..] -> m a k a || .#. _ ?* "maka-" ;
+def NANp  [..] -> n a n "-" || .#. _ ?* "nan-" ;
+def MANp  [..] -> m a n "-" || .#. _ ?* "man-" ;
+def Ip    [..] -> i || .#. _ ?* "i-" ;
+def NIp   [..] -> n i || .#. _ ?* "ni-" ;
+
+def DeHyphen "-" -> 0 || _ \V;
+def UMi [..] -> u m || .#. \V* _ V ?* "-um-" ;
+def INi [..] -> i n || .#. \V* _ V ?* "-in-" ;
+def INs [..] -> i n || %| _ ?* "-in" ;
+def ANs [..] -> a n || %| _ ?* "-an" ;
+
+def OURule  o -> u, ó -> ú ||  \[o|u] _ (C|n g) %| [a n | i n];  # dinalohan > dinaluhan
+def HInsert [..] -> h || [V-y] _ %| [a n | i n];  # tinanggian > tinanggihan
+def DRRule  d -> r || _ %| [a n | i n];       # huhubadin > huhubarin
+def Apostrophe %' -> 0 || _ %| [a n | i n] ;
+def Syncope i -> 0 || V C _  [p|t] [a n];  # This might be too irregular
+# maybe only kpan, ktan, ksan, bhan, lhin, mtan
+def Syncope V -> 0 || k _ [p|t|s] a n , b _ h a n , l _ h i n , m _ t a n ;
+
+def PreRedup   Lex .o. RedupMark .o. RedupInsert ;
+
+def Cleanup Tags -> 0;
+
+def Grammar _eq(PreRedup, %<, %>) .o. Destress .o. %<|%> -> 0 .o. NAGp .o. MAGp .o. NANGp .o. MANGp .o. NAKAp .o. MAKAp .o. NANp .o. MANp .o. NAp .o. MAp .o. NIp .o. DeHyphen .o. UMi .o. INi .o. Ip .o. INs .o. ANs .o. HInsert .o. DRRule .o.  Apostrophe .o. OURule .o. Cleanup .o. Syncope;
+
+def GuessNFIN Alphabet+ ["[V]" "[NFIN]"]:0;
+regex Grammar .P. GuessNFIN;
+
+save stack tgl.fomabin
+

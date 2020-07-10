@@ -1,0 +1,28 @@
+#mlg (Austronesian)
+
+source canonicalize.foma
+
+def Alphabet [a|b|d|e|f|g|h|i|j|k|l|m|n|o|p|r|s|t|v|y|z|à] ;
+
+def Stem Alphabet+ ;
+
+# anorina	hanorina	V;FUT
+# anakora	anakora		V;NFIN
+# itsoka	mitsoka		V;PRS
+# ianatra	nianatra	V;PST
+
+def Grammar 0:h Stem ["[V]" "[FUT]"]:0 |
+			Stem ["[V]" "[NFIN]"]:0 |
+			0:m Stem ["[V]" "[PRS]"]:0 |
+			0:n Stem ["[V]" "[PST]"]:0 ;
+
+regex Canonicalize(Grammar) ;
+
+#watt > mlg.att
+save stack mlg.fomabin
+
+# Eval fst att
+# ACCURACY: mlg 1.0 (-t)
+# ACCURACY: mlg 1.0 (-d)
+
+# tst on test set

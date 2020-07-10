@@ -1,0 +1,692 @@
+Multichar_Symbols [N] [ADJ] [SG] [PL] [NOM] [GEN] [PRT] [ESS] [TRANS] [IN+ESS] [IN+ABL] [IN+ALL] [AT+ESS] [AT+ABL] [AT+ALL] {p} {ä/i} {s} {ä/öi} {a/i} {k} {v/vv} {k/kk} {p/v/pp} {k/%0} {t/%0} {ä/i} {z/ss} {z/s/ss} {p/pp} {m/mm} {a/oi} {ä/oi} {ö/öi} {k/jj/kk} {l/ll} {k/%0/kk} {e/i} {V} {mm/mp/mpp} {s/tm} {%0/t/tt} {%0/h} {n/m/mm} {%0/z/ss} {%0/z/ks}
+
+! Stems are divided into 13 inflectional classes, mostly reflecting
+! different behavior in consonant gradation.
+! Special symbols such as {mm/mp/mpp} reflect the three
+! grades that are possible for a stem (weak, strong, superstrong)
+! These will be rewritten as mm or mp or mpp by the phonological component.
+
+! Special symbols in suffixes that the phonological component handles are inserted now and replaced later.
+! V = lengthen previous vowel
+! S = strong grade
+! SS = superstrong grade 
+! R = raise a vowel
+! A, O = vowels to be harmonized
+! Z = realized as z or s depending on MSD
+
+LEXICON Root
+
+Noun;
+
+LEXICON Noun
+
+aampuussen[N]:aampuus{s/tm}    C05;
+aika[N]:ai{k/jj/kk}{a/oi}      C01;
+daatša[N]:daatš{a/oi}          C01;
+hammaz[N]:ha{mm/mp/mpp}a       C04;
+hüvä[ADJ]:hü{v/vv}{ä/i}        C01;
+iez[N]:i{k/%0/kk}e             C04;
+ikkuna[N]:ikkun{a/oi}          C01;
+ikä[N]:i{k}{ä/i}               C01;
+izä[N]:i{z/ss}{ä/öi}           C01;
+jalka[N]:jal{k/%0}{a/oi}       C01;
+joki[N]:jo{k/%0/kk}{e/i}       C02;
+juusso[N]:juu{s}o              C02;
+järvi[N]:järv{e/i}             C02;
+jää[N]:jä{V}                   C03;
+kala[N]:ka{l/ll}{a/oi}         C01;
+karhu[N]:karhu                 C02;
+kassen[N]:kas{s/tm}            C05;
+kaunehusse[N]:kaunehu          C11;
+kevät[N]:kevä                  C06;
+korppi[N]:kor{p/pp}i           C02;
+kukka[N]:ku{k}{a/i}            C01;
+kuu[N]:ku{V}                   C03;
+käzi[N]:kä                     C07;
+lammaz[N]:la{mm/mp/mpp}a       C04;
+lapsi[N]:laps{e/i}             C08;
+leipä[N]:lei{p/v/pp}{ä/i}      C01;
+lumi[N]:lum{e/i}               C02;
+lupa[N]:lu{p/v/pp}{a/i}        C01;
+luu[N]:lu{V}                   C03;
+maa[N]:ma{V}                   C03;
+meez[N]:mee                    C04;
+mäki[N]:mä{k/%0/kk}{e/i}       C02;
+nain[N]:nai{z/s/ss}{e/i}       C13;
+näkö[N]:nä{k/%0/kk}ö           C02;
+olut[N]:olu                    C12;
+päivä[N]:päiv{ä/i}             C01;
+pää[N]:pä{V}                   C03;
+pökköiheinä[N]:pökköihein{ä/i} C01;
+seppä[N]:se{p/pp}{ä/oi}        C01;
+siar[N]:si{%0/z/ss}a           C09;
+silmä[N]:sil{m/mm}{ä/i}        C01;
+säkki[N]:sä{k}i                C02;
+süän[N]:süä{n/m/mm}            C06;
+tähti[N]:täh{t/%0}{e/i}        C08;
+tüär[N]:tü{%0/t/tt}ä           C09;
+variz[N]:vari{%0/z/ks}         C10;
+velli[N]:vell{e/i}             C02;
+vezi[N]:ve                     C07;
+voi[N]:voi                     C03;
+öö[N]:ö{V}                     C03;
+
+LEXICON C02
+
+!nominative
+[NOM][SG]:RS #;  ! strong
+[NOM][PL]:t  #;  ! weak
+
+!genitive
+[GEN][SG]:n      #; !weak
+[GEN][PL]:lOinRS #; !strong
+
+!partitive
+[PRT][SG]:ARSS    #; !strong
+[PRT][PL]:lOjARS  #; !strong
+
+!illative
+[IN+ALL][SG]:LSS      #; !strong
+[IN+ALL][PL]:lOiheRS  #; !strong
+
+!inessive
+[IN+ESS][SG]:LZ     #;  !weak
+[IN+ESS][PL]:lOiZRS #;  !weak
+
+!elative
+[IN+ABL][SG]:st  #;   !weak
+[IN+ABL][PL]:lOistRS #; !weak
+
+!allative
+[AT+ALL][SG]:lle     #;   !weak
+[AT+ALL][PL]:lOilleRS #; !weak
+
+!adessive
+[AT+ESS][SG]:Ll    #; !weak
+[AT+ESS][PL]:lOilRS  #; !weak
+
+!ablative
+[AT+ABL][SG]:lt     #;
+[AT+ABL][PL]:lOiltRS #;
+
+!translative
+[TRANS][SG]:ks     #;
+[TRANS][PL]:lOiksRS #;
+
+!essive
+[ESS][SG]:LnSS    #;
+[ESS][PL]:lOinRS #;
+
+LEXICON C09 ! tüar
+
+!nominative
+[NOM][SG]:r       #;  
+[NOM][PL]:VretSS  #; 
+
+!genitive
+[GEN][SG]:VrenSS  #;
+[GEN][PL]:riinS #; 
+
+!partitive
+[PRT][SG]:Vrt    #;
+[PRT][PL]:riaS  #; 
+
+!illative
+[IN+ALL][SG]:resseS      #; 
+[IN+ALL][PL]:risseS      #;
+
+!inessive
+[IN+ESS][SG]:reezS   #;  
+[IN+ESS][PL]:VriizS #; 
+
+!elative
+[IN+ABL][SG]:restS  #; 
+[IN+ABL][PL]:ristS #; 
+
+!allative
+[AT+ALL][SG]:relleS     #;  
+[AT+ALL][PL]:rilleS #; 
+
+!adessive
+[AT+ESS][SG]:reelS    #;
+[AT+ESS][PL]:riilS  #; 
+
+!ablative
+[AT+ABL][SG]:reltS #;
+[AT+ABL][PL]:riltS #;
+
+!translative
+[TRANS][SG]:reksS     #;
+[TRANS][PL]:riksS #;
+
+!essive
+[ESS][SG]:reenS    #;
+[ESS][PL]:riinS #;
+
+
+LEXICON C08 ! Like C02 but different grades
+
+!nominative
+[NOM][SG]:RS #;  ! strong
+[NOM][PL]:t  #;  ! weak
+
+!genitive
+[GEN][SG]:n      #; !weak
+[GEN][PL]:lOinR  #; !weak
+
+!partitive
+[PRT][SG]:ARSS    #; !strong
+[PRT][PL]:lOjAR   #; !weak
+
+!illative
+[IN+ALL][SG]:L        #; !weak
+[IN+ALL][PL]:lOiheR   #; !weak
+
+!inessive
+[IN+ESS][SG]:LZ     #;  !weak
+[IN+ESS][PL]:lOiZRS #;  !weak
+
+!elative
+[IN+ABL][SG]:st  #;     !weak
+[IN+ABL][PL]:lOistRS #; !weak
+
+!allative
+[AT+ALL][SG]:lle     #;   !weak
+[AT+ALL][PL]:lOilleR  #; !weak
+
+!adessive
+[AT+ESS][SG]:Ll    #; !weak
+[AT+ESS][PL]:lOilR   #; !weak
+
+!ablative
+[AT+ABL][SG]:lt     #; !weak
+[AT+ABL][PL]:lOiltRS #; !weak
+
+!translative
+[TRANS][SG]:ks     #; !weak
+[TRANS][PL]:lOiksR  #;!weak
+
+!essive
+[ESS][SG]:Ln     #; !weak
+[ESS][PL]:lOinR  #;  !weak
+
+
+LEXICON C01
+
+!nominative
+[NOM][SG]:VRS #;
+[NOM][PL]:Vt #;
+
+!genitive
+[GEN][SG]:Vn     #;
+[GEN][PL]:XXnRSS  #;
+
+!partitive
+[PRT][SG]:VVRSS   #;
+[PRT][PL]:XXARSS  #;
+
+!illative
+[IN+ALL][SG]:VVSS #;
+[IN+ALL][PL]:XXRSS #;
+
+!inessive
+[IN+ESS][SG]:VVz #;
+[IN+ESS][PL]:XXRz #;
+
+!elative
+[IN+ABL][SG]:Vst #; !!
+[IN+ABL][PL]:XstR #;
+
+!allative
+[AT+ALL][SG]:Vlle #;
+[AT+ALL][PL]:XlleR #;
+
+!adessive
+[AT+ESS][SG]:VVl   #;
+[AT+ESS][PL]:XXlR   #; 
+
+!ablative
+[AT+ABL][SG]:Vlt  #;
+[AT+ABL][PL]:XltR  #;
+
+!translative
+[TRANS][SG]:Vks   #;
+[TRANS][PL]:XksR   #;
+
+!essive
+[ESS][SG]:VVnSS    #;
+[ESS][PL]:XXnSSR    #;
+
+! strong grade nom sg, gen pl,
+! superstrong: sg: part ill ess
+
+LEXICON C03
+
+!nominative
+[NOM][SG]:0 #;    
+[NOM][PL]:t #;    
+
+!genitive
+[GEN][SG]:n     #; 
+[GEN][PL]:jjenR  #;
+
+!partitive
+[PRT][SG]:tA   #;  
+[PRT][PL]:tAR  #;   
+
+!illative
+[IN+ALL][SG]:hA #;  !
+[IN+ALL][PL]:heR #;
+
+!inessive
+[IN+ESS][SG]:z   #;
+[IN+ESS][PL]:zR #;
+
+!elative
+[IN+ABL][SG]:st #; !!
+[IN+ABL][PL]:stR #;
+
+!allative
+[AT+ALL][SG]:lle #;
+[AT+ALL][PL]:lleR #;
+
+!adessive
+[AT+ESS][SG]:l   #;
+[AT+ESS][PL]:lR   #; 
+
+!ablative
+[AT+ABL][SG]:lt  #;
+[AT+ABL][PL]:ltR  #;
+
+!translative
+[TRANS][SG]:ks   #;
+[TRANS][PL]:ksR   #;
+
+!essive
+[ESS][SG]:n    #;
+[ESS][PL]:nR  #;
+
+! strong grade nom sg, gen pl,
+! superstrong: sg: part ill ess
+
+
+LEXICON C13 ! nain
+
+!nominative
+[NOM][SG]:R  #;       !W
+[NOM][PL]:t #;        !W
+
+!genitive
+[GEN][SG]:n     #;    !
+[GEN][PL]:VnRS  #;
+
+!partitive
+[PRT][SG]:taSR    #;
+[PRT][PL]:VARSS  #;
+
+!illative
+[IN+ALL][SG]:VS #;
+[IN+ALL][PL]:VRS #;
+
+!inessive
+[IN+ESS][SG]:Vz #;
+[IN+ESS][PL]:VRz #;
+
+!elative
+[IN+ABL][SG]:st #; !!
+[IN+ABL][PL]:stR #;
+
+!allative
+[AT+ALL][SG]:lle #;
+[AT+ALL][PL]:lleR #;
+
+!adessive
+[AT+ESS][SG]:Vl   #;
+[AT+ESS][PL]:VlR   #; 
+
+!ablative
+[AT+ABL][SG]:lt  #;
+[AT+ABL][PL]:ltR  #;
+
+!translative
+[TRANS][SG]:ks   #;
+[TRANS][PL]:ksR   #;
+
+!essive
+[ESS][SG]:VnSS    #;
+[ESS][PL]:VnSSR    #;
+
+
+LEXICON C07 ! käzi, vezi, kaunehu/tte
+
+!nominative
+[NOM][SG]:zi   #;  
+[NOM][PL]:et #;  
+
+!genitive
+[GEN][SG]:en    #;    !
+[GEN][PL]:ssiin  #;
+
+!partitive
+[PRT][SG]:ttA    #;
+[PRT][PL]:ssiia  #;
+
+!illative
+[IN+ALL][SG]:ttee #;
+[IN+ALL][PL]:ssii #;
+
+!inessive
+[IN+ESS][SG]:eez #;
+[IN+ESS][PL]:ziiz #;
+
+!elative
+[IN+ABL][SG]:est #; !!
+[IN+ABL][PL]:zist #;
+
+!allative
+[AT+ALL][SG]:elle #;
+[AT+ALL][PL]:zille #;
+
+!adessive
+[AT+ESS][SG]:eel   #;
+[AT+ESS][PL]:ziil   #; 
+
+!ablative
+[AT+ABL][SG]:elt  #;
+[AT+ABL][PL]:zilt  #;
+
+!translative
+[TRANS][SG]:eks   #;
+[TRANS][PL]:ziks   #;
+
+!essive
+[ESS][SG]:tteen    #;
+[ESS][PL]:ssiin    #;
+
+LEXICON C04 ! hammaz, lammaz (mm/mp/mpp/), iez, meez?
+
+!ha{m/mp/pp}a
+!i{0/k/0}e
+!mee{0/h}
+
+!nominative
+[NOM][SG]:z   #;  
+[NOM][PL]:VhAtSS   #;  
+
+!genitive
+[GEN][SG]:VhAnSS    #;    !
+[GEN][PL]:hiinS     #;
+
+!partitive
+[PRT][SG]:st    #;
+[PRT][PL]:hiäS   #;
+
+!illative
+[IN+ALL][SG]:hAsseS #;
+[IN+ALL][PL]:hisseS #;
+
+!inessive
+[IN+ESS][SG]:hAAzS #;
+[IN+ESS][PL]:hiizS #;
+
+!elative
+[IN+ABL][SG]:hAstS #; !!
+[IN+ABL][PL]:histS #;
+
+!allative
+[AT+ALL][SG]:hAlleS #;
+[AT+ALL][PL]:hilleS #;
+
+!adessive
+[AT+ESS][SG]:hAAlS   #;
+[AT+ESS][PL]:hiilS   #; 
+
+!ablative
+[AT+ABL][SG]:hAltS  #;
+[AT+ABL][PL]:hiltS  #;
+
+!translative
+[TRANS][SG]:hAksS   #;
+[TRANS][PL]:hiksS   #;
+
+!essive
+[ESS][SG]:hAAnS    #;
+[ESS][PL]:hiinS    #;
+
+
+LEXICON C06 ! süän
+
+!süän:süa{n/m/mm}
+
+!nominative
+[NOM][SG]:0     #;  
+[NOM][PL]:etS   #;  
+
+!genitive
+[GEN][SG]:enS    #;    !
+[GEN][PL]:iinSS     #;
+
+!partitive
+[PRT][SG]:t     #;
+[PRT][PL]:iiaSS   #;
+
+!illative
+[IN+ALL][SG]:eVSS #;
+[IN+ALL][PL]:iVSS #;
+
+!inessive
+[IN+ESS][SG]:eVzS #;
+[IN+ESS][PL]:iVzS #;
+
+!elative
+[IN+ABL][SG]:estS #; !!
+[IN+ABL][PL]:istS #;
+
+!allative
+[AT+ALL][SG]:elleS #;
+[AT+ALL][PL]:illeS #;
+
+!adessive
+[AT+ESS][SG]:eVlS   #;
+[AT+ESS][PL]:iilS   #; 
+
+!ablative
+[AT+ABL][SG]:eltS  #;
+[AT+ABL][PL]:iltS  #;
+
+!translative
+[TRANS][SG]:eksS   #;
+[TRANS][PL]:iksS   #;
+
+!essive
+[ESS][SG]:eVnSS    #;
+[ESS][PL]:iVnSS    #;
+
+
+LEXICON C12 ! olut
+
+!nominative
+[NOM][SG]:t   #;  
+[NOM][PL]:Vvet #;  
+
+!genitive
+[GEN][SG]:Vvven    #;    !
+[GEN][PL]:iziVn  #;
+
+!partitive
+[PRT][SG]:ttA    #;
+[PRT][PL]:izia  #;
+
+!illative
+[IN+ALL][SG]:esse #;
+[IN+ALL][PL]:isiV #;
+
+!inessive
+[IN+ESS][SG]:eez #;
+[IN+ESS][PL]:iziVz #;
+
+!elative
+[IN+ABL][SG]:est #; !!
+[IN+ABL][PL]:izist #;
+
+!allative
+[AT+ALL][SG]:elle #;
+[AT+ALL][PL]:izille #;
+
+!adessive
+[AT+ESS][SG]:eel   #;
+[AT+ESS][PL]:iziVl   #; 
+
+!ablative
+[AT+ABL][SG]:elt  #;
+[AT+ABL][PL]:izilt  #;
+
+!translative
+[TRANS][SG]:eks   #;
+[TRANS][PL]:iziks   #;
+
+!essive
+[ESS][SG]:een    #;
+[ESS][PL]:iziVn    #;
+
+LEXICON C05 ! ampuussen
+
+!ampuussen:ampuu{ss/stm}
+
+!nominative
+[NOM][SG]:en   #;  
+[NOM][PL]:etS   #;  
+
+!genitive
+[GEN][SG]:enS    #;    !
+[GEN][PL]:iinS     #;
+
+!partitive
+[PRT][SG]:eVnt    #;
+[PRT][PL]:iaS   #;
+
+!illative
+[IN+ALL][SG]:eVS #;
+[IN+ALL][PL]:iVS #;
+
+!inessive
+[IN+ESS][SG]:eVzS #;
+[IN+ESS][PL]:iVzS #;
+
+!elative
+[IN+ABL][SG]:estS #; !!
+[IN+ABL][PL]:istS #;
+
+!allative
+[AT+ALL][SG]:elleS #;
+[AT+ALL][PL]:illeS #;
+
+!adessive
+[AT+ESS][SG]:eVlS   #;
+[AT+ESS][PL]:illS   #; 
+
+!ablative
+[AT+ABL][SG]:eltS  #;
+[AT+ABL][PL]:iltS  #;
+
+!translative
+[TRANS][SG]:eksS   #;
+[TRANS][PL]:iksS   #;
+
+!essive
+[ESS][SG]:eVnS    #;
+[ESS][PL]:iVnS    #;
+
+LEXICON C11! kaunehusse
+
+!nominative
+[NOM][SG]:sse   #;  
+[NOM][PL]:et    #;  
+
+!genitive
+[GEN][SG]:en    #;    !
+[GEN][PL]:ksiin     #;
+
+!partitive
+[PRT][SG]:tta    #;
+[PRT][PL]:ksia   #;
+
+!illative
+[IN+ALL][SG]:tteV #;
+[IN+ALL][PL]:ksiV #;
+
+!inessive
+[IN+ESS][SG]:eVz #;
+[IN+ESS][PL]:ksiVz #;
+
+!elative
+[IN+ABL][SG]:est #; !!
+[IN+ABL][PL]:ksist #;
+
+!allative
+[AT+ALL][SG]:elle #;
+[AT+ALL][PL]:ille #;
+
+!adessive
+[AT+ESS][SG]:eVl   #;
+[AT+ESS][PL]:ksiVl   #; 
+
+!ablative
+[AT+ABL][SG]:elt  #;
+[AT+ABL][PL]:ksilt  #;
+
+!translative
+[TRANS][SG]:eks   #;
+[TRANS][PL]:ksiks   #;
+
+!essive
+[ESS][SG]:tteVn    #;
+[ESS][PL]:ksiVn   #;
+
+
+
+LEXICON C10! variz
+
+!nominative
+[NOM][SG]:0S      #;  
+[NOM][PL]:etSS    #;  
+
+!genitive
+[GEN][SG]:enSS     #;   
+[GEN][PL]:iinSS    #;
+
+!partitive
+[PRT][SG]:ist    #;
+[PRT][PL]:iaSS   #;
+
+!illative
+[IN+ALL][SG]:eVSS #;
+[IN+ALL][PL]:iVSS #;
+
+!inessive
+[IN+ESS][SG]:eVzSS #;
+[IN+ESS][PL]:iVzSS #;
+
+!elative
+[IN+ABL][SG]:estSS #; !!
+[IN+ABL][PL]:istSS #;
+
+!allative
+[AT+ALL][SG]:elleSS #;
+[AT+ALL][PL]:illeSS #;
+
+!adessive
+[AT+ESS][SG]:eVlSS   #;
+[AT+ESS][PL]:iVlSS   #; 
+
+!ablative
+[AT+ABL][SG]:eltSS  #;
+[AT+ABL][PL]:iltSS  #;
+
+!translative
+[TRANS][SG]:eksSS   #;
+[TRANS][PL]:iksSS   #;
+
+!essive
+[ESS][SG]:eVnSS    #;
+[ESS][PL]:iVnSS   #;

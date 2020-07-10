@@ -9,3 +9,4 @@ regex 0:ŋ Stem ["[V]" "[PRS]"]:0 |
       Stem ["[V]" "[HAB]" "[PRS]"|"[V]" "[HAB]" "[PST]"|"[V]" "[NFIN]"]:0 ;
 
 save stack gaa.fomabin
+watt > gaa.att

@@ -1,0 +1,222 @@
+# czn with separate grammars for each tag
+# czn (Otomanguean)
+
+source canonicalize.foma
+def Alphabet [% |%-|=|a|b|c|e|h|i|k|l|n|o|r|s|t|u|w|x|y|z|²|¹|ą|ę|į|ų|ǫ|ʔ|%–] ;
+
+# %- (the dash) and = are legitimate characters in the orthography according to Justin D McIntosh in his dissertation at (https://www.academia.edu/13002896/Aspects_of_Phonology_and_Morphology_of_Teotepec_Eastern_Chatino)
+# The hyphen appears to be an error, possibly due to annotators using different keyboards or different encodings.
+# ERROR: y-a²la[V][POT] ch-a²la SHOULD BE: ch–a²la
+
+# The most common class (default)
+def Stem1 Alphabet+ ;
+
+# Less common classes
+
+# --- Hab ---
+
+# del both 1 and 2
+def Stem2 [y %- a ² n o ¹ | u %- t e ² e ¹ ʔ | t %- a ² h a ¹ | t a ² k w i ¹ | y a ² ʔ ą ¹ | w i ² i ¹ | u %- l %- a ² s u ¹ | u %- l u ² u ¹ | i ² s u ¹ | u %- s %- u ² k w a ¹ ʔ | k e ² l a ¹ | u ² n e ¹ | u %- l a ² t z a ¹ | y %- u ² k w a ¹ ʔ | l a ² a ¹ | l i ² h i ¹ | l a ² t i ¹ | u %- l a ² a ¹ | i ² c h a ą ¹ | t %- u ² k w a ¹ | t e ² e ¹ ʔ | i ² c h a a ¹ | k a ² ʔ n e ¹ | y %- a ² n a ¹ | y %- a ² h a ¹ | u %- w i ² i ¹ | u ² t i ¹ | h u ² ʔ u ¹ | l i ² y a ¹ | x a ² ʔ a ¹ | t i ² k w i ¹ | l i ² n t o ¹ | y %- u ² k w a ¹ | h u ² ų ¹ | i ² k w a ¹ | l u ² u ¹ ] ;
+
+# del 2
+def Stem3 [u %- s %- a ¹ a ² ʔ | t a ¹ a ² ʔ | t y u ¹ k w a ² ] ;
+
+# del 1
+def Stem4 [t e e ¹ | u %- h n y a ¹ ʔ | h y a ¹ | a ʔ n a ¹] ;
+
+# del 1 and turn 2 into a 1
+def Stem12 [u %- t e ¹ h ę ² | u ¹ ʔ y a ² | y %- a ¹ k w ę ² | y a ¹ c h i ² ʔ | l u ¹ k w a ² | l a ¹ l a ² | u %- l a ¹ ʔ a ² | u ¹ %- k e ² ʔ | y %- a ¹ l a ² | u ¹ %- s o ² ʔ | u %- t %- a ¹ k ǫ ² ʔ | u ¹ %- h l y a ² | y %- a ¹ k ǫ ² ʔ | u %- k i ¹ t ę ² ʔ | k i ¹ t ę ² ʔ| u %- k a ¹ t a ² | i ¹ ʔ y a ² | u ¹ %- t ę ² | u ¹ l a ² | u ¹ n a ² | u %- k a ¹ t i ² | u %- t %- a ¹ k ę ² | t a ¹ a ² ʔ] ;
+
+# change 2 to 1
+def Stem16 [h n a ² | s o ² ʔ] ;
+
+# add 1 to prefix
+def Stem17 [k u ² t i | l a ² ʔ w a | s e ² s u | t z a ² | l y e ¹ ʔ e ² | h n y a ² | x ę ² | o ʔ o ¹] ;
+
+# add "tala" before stem
+def Stem21 [e t a | a a | y %- u t e ʔ | y a t ę | ʔ n e] ;
+
+# --- PFV ---
+
+# delBoth:
+def Stem5 [ y %- u ² k w a ¹ ] ;
+
+#addOne:
+def Stem19 [u %- t o t z a | t a ² t z a | t u ² ʔ y a | k u ² t i | y e e | t i t a | a k a | s u ² l u | t y u ² k w a | y %- u k w ą | u %- t y e l e | s ǫ ² | s o ² ʔ | s e ² s u | u h w i ʔ | n a ʔ a | i %- l y %- a ² s u | u %- t z u | k u ² t i | u %- h a w i] ;
+
+#delOne:
+def Stem6 [a ¹ l u ² | a ¹ s u ² ʔ | a ¹ t z u ² ʔ | a ¹ k e ² ʔ | a ¹ t ę ² | a ¹ k w i ² | a ¹ k ą ² ʔ ] ;
+
+# change 2 to 1
+
+# --- POT ---
+
+# delBoth:
+def Stem7 [t e ² e ¹ ʔ | u %- l a ² a ¹ | k a ² ʔ n e ¹ | u ² n e ¹ | i ² s u ¹ | u %- l a ² t z a ¹ | u ¹ %- b a ² ʔ a ¹ | l a ² t i ¹ | y a ² ʔ ą ¹ | i ² k w ą ¹ | y %- u ² k w a ¹ | t a ² k w i ¹ | u %- l %- a ² s u ¹ | l i ² y a ¹ | x a ² ʔ a ¹ | y %- u ² k w a ¹ ʔ | k e ² l a ¹ | i ² c h a ą ¹ | u %- t e ² e ¹ ʔ | i ² k w a ¹ | t %- u ² k w a ¹ | u %- s %- u ² k w a ¹ ʔ | w i ² i ¹ | l i ² h i ¹ | u %- l u ² u ¹ | t %- a ² h a ¹ | u %- w i ² i ¹ | l a ² a ¹ | h u ² ʔ u ¹ | t i ² k w i ¹ | y %- a ² n o ¹ | h u ² ų ¹ ] ;
+
+#addOne:
+def Stem20 [s e ² s u | s ǫ ² | k u ² t i | l i ² t i ʔ | l a ² k w i | x ę ² | l a ² ʔ w a | s u ² l u | h n y a ² | s ę ² | l y e ¹ ʔ e ²] ;
+
+#delTwo:
+def Stem8 [u ¹ %- h l y a ² | u %- t e ¹ h ę ² | t y u ¹ k w a ² | u ¹ %- t ę ² | i %- l y %- a ² s u | t a ¹ a ² ʔ ];
+
+# delOne:
+def Stem9 [u ¹ %- s %- a ² t a | h y a ¹ | u ¹ %- t u ² w e | u ¹ %- n a ² n a | u ¹ %- s t i ² | u ¹ %- x ę ² | u ¹ %- x %- i ² t i | t e e ¹ | a ʔ n a ¹ | u ¹ %- n i ² k w ę | u ¹ %- t u ² k w i | u ¹ %- t %- i ² s ę | u ¹ %- h n a ² ʔ | u ¹ %- c h i ² k w ę | u ¹ %- l i ² n t o | u ¹ %- k ų ² ];
+
+# del 1, change 2 to 1
+def Stem15 [y %- a ¹ k ǫ ² ʔ | u %- t e ¹ h ę ² | u %- l a ¹ ʔ a ² | u ¹ %- s o ² ʔ | u %- t %- a ¹ k ǫ ² ʔ | u %- x i ¹ %- k ą ² ʔ | u %- t %- a ¹ k ę ² | u %- k a ¹ t i ² | k i ¹ t ę ² ʔ | y %- a ¹ k w ę ² | k a ¹ t a ² | u ¹ ʔ y a ² | s o ² ʔ | l u ¹ k w a ² | i ¹ ʔ y a ² | u %- n a ¹ k w ą ² | l a ¹ l a ² | h n a ² | u ¹ n a ² | u ¹ l a ² | u %- k a ¹ t a ² | u ¹ %- t ę ² | u %- k i ¹ t ę ² ʔ | u %- t u ¹ s u ² ʔ | y a ¹ c h i ² ʔ] ;
+
+# --- PROG ---
+
+# delBoth:
+def Stem10 [i ² c h a a ¹ | i ² k w ą ¹ | i ² s u ¹ | i ² c h a ą ¹ | i ² k w a ¹] ;
+
+#addOne: 
+def Stem18 [s ǫ ² | y a ² ʔ ą | t u ² ʔ y a | h n a ² | t u ² w e | t y u ² k w a | y %- u k w ą | u %- h a w i | y %- a ² l a | t a ² t z a | s u ² l u | s ę ² | u %- t y e l e | l i ² t i ʔ | u h w i ʔ | h n y a ² | x ę ² | l a ² k w i | a k a | u %- t o t z a | n a ʔ a | l a ² ʔ w a | t u ² ʔ u | i i | k u ² t i | t y a ² n a | l y e ¹ ʔ e ² | u %- l a ¹ s t i ²] ;
+
+#delTwo:
+def Stem11 [ a ¹ s u ² ʔ | u %- s a ¹ ʔ ą ² ] ;
+
+# change 2 to 1
+def Stem13 [s o ² ʔ] ;
+
+# del 1 and turn 2 into a 1
+def Stem14 [y a ¹ c h i ² ʔ | a ¹ t z u ² ʔ | a ¹ t ę ² | y %- a ¹ l a ² | a ¹ l u ² | a ¹ k w i ² | a ¹ k e ² ʔ] ;
+
+# ---- Grammars ----
+
+def delOne ¹ -> 0 ;
+def delTwo ² -> 0 ;
+def twoToOne ² -> ¹ ;
+
+# no change
+def Grammar1 0:[n t U %-] Stem1 ["[V]" "[HAB]"]:0 |
+			0:[n k A %-] Stem1 ["[V]" "[PFV]"]:0 |
+			0:[k I %-] Stem1 ["[V]" "[POT]"]:0 |
+			0:[n t e %-] Stem1 ["[V]" "[PROG]"]:0 ;
+
+# del both 1 and 2
+def Grammar2 0:[n t U %-] Stem2 ["[V]" "[HAB]"]:0 |
+			0:[n k A %-] Stem5 ["[V]" "[PFV]"]:0 |
+			0:[k I %-] Stem7 ["[V]" "[POT]"]:0 |
+			0:[n t e %-] Stem10 ["[V]" "[PROG]"]:0 .o. delOne .o. delTwo ;
+
+# del only 1
+def Grammar3 0:[n t U %-] Stem4 ["[V]" "[HAB]"]:0 |
+			0:[n k A %-] Stem6 ["[V]" "[PFV]"]:0 |
+			0:[k I %-] Stem9 ["[V]" "[POT]"]:0 .o. delOne ;
+
+# del only 2
+def Grammar4 0:[n t U %-] Stem3 ["[V]" "[HAB]"]:0 |
+			0:[k I %-] Stem8 ["[V]" "[POT]"]:0 |
+			0:[n t e %-] Stem11 ["[V]" "[PROG]"]:0 .o. delTwo ;
+
+# del the 1 and turn 2 into a 1
+def Grammar5 0:[n t U %-] Stem12 ["[V]" "[HAB]"]:0 |
+			0:[n t e %-] Stem14 ["[V]" "[PROG]"]:0 |
+			0:[k I %-] Stem15 ["[V]" "[POT]"]:0 .o. delOne .o. twoToOne ; 
+
+# change 2 into a 1
+def Grammar6 0:[n t e %-] Stem13 ["[V]" "[PROG]"]:0 |
+			0:[n t U %-] Stem16 ["[V]" "[HAB]"]:0 .o. twoToOne ;
+
+# add 1 to prefix
+def Grammar7 0:[n t i ¹ %-] Stem17 ["[V]" "[HAB]"]:0 |
+			0:[n t e ¹ %-] Stem18 ["[V]" "[PROG]"]:0 |
+			0:[n k A ¹ %-] Stem19 ["[V]" "[PFV]"]:0 |
+			0:[k i ¹ %-] Stem20 ["[V]" "[POT]"]:0 ;
+
+# add "tala" before stem
+def Grammar8 0:[t a l a %  n t i %-] Stem21 ["[V]" "[HAB]"]:0 ;
+
+# num stems: 21
+
+def V [ą|ę|į|ų|ǫ|a|e|i|o|u] ;
+def Vdel [%- i| %- u] -> 0 || [n t e] _ ;
+def C [t | k| n| s| l |w |h |x] ;
+
+def fixY [k i %- y] -> [c h %–] || _ [(%-) a|(%-) u] .o.
+		[n t e %- y] -> [n t e %- c h] || _ [(%-) a t| %- a h| a ¹ | u ʔ |(%-) u ¹| a k w | a c h | a a | a ą | %- a s u | %- a l a ¹] .o. 
+		[n t e] -> [n c h] || _ [%- a|%- o|%- u] .o.
+		[t i %- y] -> [%- c h] || _ [(%-) a|%- u w|%- u ʔ| %- u k] ;
+
+def specialA [n k A ¹ %- y %- u] -> [n k %- y u ²] .o. [n k A ¹ %- u] -> [n k a ²] ;
+def delW A -> 0 || _ [(¹) %- y] .o. [A (¹) %- a] -> [u %-] .o. A -> i || _ [¹ %- i];
+def changeA [A %- u] -> [a %-] .o. A -> u || _ [(¹) %- C] ; 
+def reWriteA A -> w || _ [%- i|i|%- e|e] .o. A -> a || _[¹ %- n a |%- ʔ n i];
+def AtoWI A -> [w i] || _ [%- s | %- t] ;
+def idk [n k A] -> y || _ [%- o] .o. A -> a || _ [%- ʔ n e]; 
+
+def reWriteU  U -> 0 || _ [%- u| %- i] .o. U -> i ;
+def reWriteI  I -> 0 || _ [%- u| %- e| %- i| %- a] .o. I -> i ;
+
+def delDash [%-] -> 0 || _ [(¹) %-] ;
+def delHyphen [%–] -> 0 || _ [(¹) %-] ;
+
+def special1 [n c h] -> [n t e y] || _ [%- a h a ¹ | %- a t ę ¹ | %- a ą] ;
+def special2 [n t e] -> [n c h %- u] || _ [(¹) (²) C] ;
+
+def Grammar [Grammar2 | Grammar3 | Grammar4 | Grammar5 | Grammar6 | Grammar7 | Grammar8] .P. Grammar1 ;
+
+regex Canonicalize(Grammar .o. specialA .o. delW .o. reWriteA .o. reWriteU .o. changeA .o. reWriteI .o. Vdel .o. idk .o. fixY .o. delDash .o. delHyphen .o. AtoWI .o. special1 .o. special2) ;
+
+save stack czn.fomabin
+
+#instead of "save stack zpv.fomabin" in your foma-script, save as "watt > zpv.att"
+#Then you can run evalfstatt.py exactly the same way as evalfst.py. 
+
+# ACCURACY: czn 0.7913602941176471 (-t)
+# ACCURACY: czn 0.7597402597402597 (-d)
+
+# Best NN: 84.4156
+
+
+# --- Notes ---
+
+# ------ PFV -----------
+# stem is hard to predict: 
+
+# ERROR: aą[V][PFV] nku-ą SHOULD BE: y-aą
+# ERROR: a¹kwi²[V][PFV] nku-kwi² SHOULD BE: kwi²
+# ERROR: akwę¹[V][PFV] nku-kwę¹ SHOULD BE: y-akwę¹
+# ERROR: tita[V][PFV] nku¹-tita SHOULD BE: nku-tita¹
+# ERROR: a¹tzu²ʔ[V][PFV] nku-tzu²ʔ SHOULD BE: tzu²ʔ
+# ERROR: hya¹[V][PFV] nku-hya¹ SHOULD BE: nka-hya¹
+# ERROR: ahi¹[V][PFV] nku-hi¹ SHOULD BE: nku-hwi¹
+# ERROR: alaʔ[V][PFV] nku-laʔ SHOULD BE: y-alaʔ
+
+# ERROR: u-hawi[V][PFV] nka²-hawi SHOULD BE: nka¹-hawi
+# ERROR: u-tzaʔ[V][PFV] nka-tzaʔ SHOULD BE: y-u-tzaʔ
+# ERROR: una[V][PFV] nka-na SHOULD BE: y-una
+# ERROR: ukwęʔ[V][PFV] nka-kwęʔ SHOULD BE: y-ukwęʔ
+# ERROR: u-tikwę[V][PFV] nka-tikwę SHOULD BE: nkwi-tikwę
+
+# ERROR: y-a²na¹[V][PFV] nk-y-a²na¹ SHOULD BE: nk-ya²na¹
+# ERROR: yaa¹ʔ[V][PFV] nk-yaa¹ʔ SHOULD BE: nk-ya¹a²ʔ
+# ERROR: y-aką¹ʔ[V][PFV] nk-y-aką¹ʔ SHOULD BE: nk-y-a¹ką²ʔ
+# ERROR: yee[V][PFV] nk¹-yee SHOULD BE: nkwi-yee¹
+# ERROR: y-uwi¹ʔ[V][PFV] nk-y-uwi¹ʔ SHOULD BE: nk-y-u¹wi²ʔ
+# ERROR: y-ukwą[V][PFV] nk-yu²kwą SHOULD BE: nk-yu²kwą¹
+# ERROR: y-atę¹[V][PFV] nk-y-atę¹ SHOULD BE: nk-y-a¹tę²
+
+# ERROR: i-ch-uhwi¹ʔ[V][PFV] nkw-i-ch-uhwi¹ʔ SHOULD BE: nkw-i-chuhwi¹ʔ
+# ERROR: eʔe[V][PFV] nkw-eʔe SHOULD BE: nkwi-ʔe
+# ERROR: i-tyotza[V][PFV] nkw-i-tyotza SHOULD BE: nkw-i-totza
+
+
+# ------ y and ch -----------
+# Also hard to predict -> the majority of y instances are converted to ch in the same environment
+# These are exceptions
+# nte- _ -a
+# nte- _ -u
+#ERROR: y-atą[V][PROG] nte-ch-atą SHOULD BE: nte-y-atą
+#ERROR: y-atę¹[V][PROG] nte-ch-atę¹ SHOULD BE: nte-y-a¹tę²
+#ERROR: y-atiʔ[V][PROG] nte-ch-atiʔ SHOULD BE: nte-y-atiʔ
+#ERROR: y-u¹kwa²[V][PROG] nte-ch-u¹kwa² SHOULD BE: nte-y-u¹kwa²
+
+
+# --- one of each ---
+#u-s-u¹kwa²	nt-u-s-u¹kwa²	V;HAB
+#i¹-hni²	nkw-i¹-hni²		V;PFV
+#tehę¹		tyehę¹			V;POT  
+#i-lyakwa¹	nte-lyakwa¹		V;PROG

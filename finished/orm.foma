@@ -1,0 +1,55 @@
+source canonicalize.foma
+
+def Alphabet [% |'|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|q|r|s|t|u|w|x|y];
+
+def Stem Alphabet+;
+def Cons [b|c|d|f|g|h|j|k|l|m|n|q|r|s|t|w|x|y];
+def Vow [a|e|i|o|u];
+
+def Word Stem ["[V]" "[SG]" "[1]" "[PRS]"]:["[PRS]" {+aa} { +jiraa}] | 
+	 Stem ["[V]" "[PL]" "[1]" "[PRS]"]:["[PRS]" {+aa} { +jiraa}]|
+	 Stem ["[V]" "[SG]" "[1]" "[PST]"]:{+dhee} | 
+	 Stem ["[V]" "[PL]" "[1]" "[PST]"]:{+nee} | 
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[SG]" "[1]"]:{+dhaa} |
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[PL]" "[1]"]:{+nnaa} |
+
+	 Stem ["[V]" "[SG]" "[2]" "[PRS]"]:["[PRS]" {+aa} { +jirtaa}] | 
+	 Stem ["[V]" "[PL]" "[2]" "[PRS]"]:["[PRS]" {+aa} { +jirtuu}] |
+	 Stem ["[V]" "[SG]" "[2]" "[PST]"]:{+ttee} | 
+	 Stem ["[V]" "[PL]" "[2]" "[PST]"]:{+ttanii} | 
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[SG]" "[2]"]:{+ttaa} |
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[PL]" "[2]"]:{+ttuu} |
+
+	 Stem ["[V]" "[FEM]" "[SG]" "[3]" "[PRS]"]:["[PRS]" {+aa} { +jirtii}] | 
+	 Stem ["[V]" "[MASC]" "[SG]" "[3]" "[PRS]"]:["[PRS]" {+aa} { +jiraa}] | 
+	 Stem ["[V]" "[PL]" "[3]" "[PRS]"]:["[PRS]" {+aa} { +jiranii}] |
+	 Stem ["[V]" "[FEM]" "[SG]" "[3]" "[PST]"]:{+ttee} | 
+	 Stem ["[V]" "[MASC]" "[SG]" "[3]" "[PST]"]:{+tee} | 
+	 Stem ["[V]" "[PL]" "[3]" "[PST]"]:{+tanii} | 
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[FEM]" "[SG]" "[3]"]:{+ttii} |
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[MASC]" "[SG]" "[3]"]:{+taa} |
+	 ["[V]" "[FUT]"]:{ni+ } Stem ["[PL]" "[3]"]:{+tanii} |
+
+	 Stem ["[V]" "[NFIN]"]:["[NFIN]" {+uu}] ;
+
+def chStem  [{tol}|{nyaa}|{gaafa}|{yaada}|{hira}|{jiraa}|{bara}|{dubba}|{haxxifa}|{huba}|{fuumfa}|{darba}|{arga}|{hojje}] ;
+
+def addCH1 "[PRS]" -> {ch} || chStem _ %+ ;
+def addCH2 "[NFIN]" -> {ch} || chStem | {ba'a} | {dhaaba} _ %+ ;
+def addCH addCH1 .o. addCH2;
+
+#NFIN
+def vowFinal  {+uu} -> 0 || Vow _ .#. ;
+def NFin vowFinal;
+
+#CLEANUP
+def RemovePlus "+" -> 0;
+def RemoveBrackets "[PRS]" | "[NFIN]" -> 0;
+def RemoveUU {uu} -> 0 || Vow _ .#. ;
+
+def Grammar Word ;
+
+regex Canonicalize(Grammar .o. addCH .o. NFin .o. RemovePlus .o. RemoveBrackets .o. RemoveUU);
+
+save stack orm.fomabin
+#watt > orm.att

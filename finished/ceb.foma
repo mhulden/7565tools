@@ -1,0 +1,24 @@
+source canonicalize.foma
+
+#mobalik nibalik V;PST
+#mabuhi  mabuhi  V;FUT
+#mobati  ningbati        V;PROG;PRS
+#maminaw nagpaminaw      V;PRS
+#molupad molupad V;NFIN
+#aduna   aduna   V;PRF;PST
+
+def Alphabet [" "|%-|a|b|d|e|g|h|i|k|l|m|n|o|p|r|s|t|u|w|y];
+
+def Stem Alphabet+;
+
+regex 	[[m o]:[n i]|[m a]:[n a]] Stem ["[V]" "[PST]"]:0 |
+		[[m o]:[n i n g]|[m a]:[n a]] Stem ["[V]" "[PROG]" "[PRS]"]:0 |
+		[[m o]:[n a g]|[m a]:[n a]] Stem ["[V]" "[PRS]"]:0 |
+		Stem ["[V]" "[FUT]"]:0 |
+		Stem ["[V]" "[NFIN]"]:0 |
+		[m [o|a]]:[n a] Stem ["[V]" "[PRF]" "[PST]"]:0 | 
+		\m Stem ["[V]" ("[PRF]") ("[PROG]") ("[NFIN]") ("[PST]") ("[PRS]") ("[FUT]")]:0;
+
+def Base;
+regex Base;
+save stack ceb.fomabin

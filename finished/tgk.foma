@@ -1,0 +1,13 @@
+source canonicalize.foma
+
+def Alphabet [а|б|в|г|д|е|ж|з|и|й|к|л|м|н|о|п|р|с|т|у|ф|х|ш|ъ|я|ё|ғ|қ|ҳ|ҷ|ӯ];
+
+def Stem Alphabet+;
+
+regex 	Stem [["[N]"|"[V]"] ("[NDEF]") ["[SG]"|"[NFIN]"]]:0 |
+		Stem ["[N]" ("[NDEF]") "[PL]"]:[о н] ;
+
+def Base;
+regex Base;
+save stack tgk.fomabin
+#watt > task/tgk.att

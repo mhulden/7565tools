@@ -1,0 +1,39 @@
+Multichar_Symbols [V] [PFV] [LGSPEC2] [IRR] [STAT] [IPFV] [NEG] [PFV] [LGSPEC1] @U.NEG@
+
+
+LEXICON Root 
+Lemma;
+
+
+LEXICON Lemma
+nu¹na⁴ 									ClassA; 
+kiʔ¹bi³ 								ClassB;
+ke¹ta³ 									ClassB;
+ka¹an³ 									ClassB;
+ko¹yo³ 									ClassB;
+ta¹an³ 									ClassB;
+ndo¹o³ 									ClassB;
+kwa¹xin³								ClassB;
+kwi¹so³ 								ClassB;
+kwaʔ¹a³ 								ClassB;
+kwiʔ¹nu³ 								ClassB;
+na¹ma³ 									ClassB;
+nde¹e³ 									ClassB;
+kaʔ¹un³ 								ClassB;
+ku³-ndiʔ¹i³ 							ClassB;
+to¹o³ 									ClassB;
+niʔ¹i³ 									ClassB;
+ka¹ku³ 									ClassB;
+xi¹nu³ 									ClassB;
+ke¹e³ 									ClassB;
+
+
+
+LEXICON ClassA 
+[V][IRR][NEG]:A4NG						#; 
+[V][IPFV]:A4IP 							#; 
+
+
+LEXICON ClassB
+[V][IPFV]:A13IP 						#; 
+

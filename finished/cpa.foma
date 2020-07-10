@@ -1,0 +1,107 @@
+source canonicalize.foma
+
+#define alphabet & parts
+def Alphabet [% |%(|%)|%+|%-|2|a|b|c|d|e|g|h|i|k|l|m|n|o|p|r|s|t|u|²|³|¹|á|é|í|ó|ø|ú|ē|ǿ|Ɂ|ḗ];
+def V [a|e|i|o|u|á|é|í|ó|ø|ú|ē|ǿ|ḗ];
+def C [b|c|d|g|h|k|l|m|n|r|s|t|Ɂ];
+def Tone [²|³|¹];    
+def Misc [% |%(|%)|%+|%-];
+
+
+
+### LEXICON ###
+
+
+
+#open defined lexicon
+read lexc cpa.lexc
+eliminate flags
+def LexGrammar;
+
+
+
+### GUESSER ###
+
+#need to remove second word from stem
+def Stem Alphabet+ .o. [" " ?+] @->0 || " " _ .#.;
+
+#Guesser is also "Class 4" - no vowels changes, no letter changes, no tone changes, only prefixes and accent loss.
+def RawGuesser [
+       "[PRS]":0      Stem ["[V]" "[IPFV]" "[2]"]:A |
+       "[PST]":{mi³-} Stem ["[V]" "[IPFV]" "[2]"]:A |
+       "[PRS]":0      Stem ["[V]" "[IPFV]" "[3]"]:0 |
+       "[PST]":{mi³-} Stem ["[V]" "[IPFV]" "[3]"]:0 |
+       "[PRS]":0      Stem ["[V]" "[IPFV]" "[PL]" "[1]"]:A |
+       "[PST]":{mi³-} Stem ["[V]" "[IPFV]" "[PL]" "[1]"]:A |
+       "[PRS]":0      Stem ["[V]" "[IPFV]" "[SG]" "[1]"]:A |
+       "[PST]":{mi³-} Stem ["[V]" "[IPFV]" "[SG]" "[1]"]:A |
+       "[FUT]":0      Stem ["[V]" "[IRR]" "[2]"]:A |
+       "[FUT]":0      Stem ["[V]" "[IRR]" "[3]"]:0 |
+       "[FUT]":0      Stem ["[V]" "[IRR]" "[PL]" "[1]"]:A |
+       "[FUT]":0      Stem ["[V]" "[IRR]" "[SG]" "[1]"]:A ];
+
+
+def Grammar Canonicalize(LexGrammar) .P. Canonicalize(Guesser);
+
+
+### PHONOTACTICS ###
+
+
+
+## TONE ## 
+
+
+#tone changes as marked in lexc
+def X3End [Tone+ X3E] @-> ³ ;  
+def X2End [Tone+ X2E] @-> ² ;  
+def X1End [Tone+ X1E] @-> ¹ ;
+def 12End [Tone+ 12E] @-> {¹²} ;     
+def 13End [Tone+ 13E] @-> {¹³} ;     
+def X3Mid Tone -> ³ || _ %+ [?]* [3M] ;  
+def X1Mid Tone -> ¹ || _ %+ [?]* [1M] ;
+
+def ToneChange X3End .o. X2End .o. X1End .o. 12End .o. 13End .o. X3Mid .o. X1Mid;
+
+
+## ACCENT ##
+
+
+#replace accented vowels with unaccented surface forms when marked by A
+def AccLoss1 ǿ -> ø || _ ?* A ;
+def AccLoss2 é -> e || _ ?* A ;
+def AccLoss3 á -> a || _ ?* A ;
+def AccLoss4 ó -> o || _ ?* A ;
+def AccLoss5 ḗ -> ē || _ ?* A ; 
+#def AccLoss6 ē -> e || _ ?* A ; #removed b/c too many exceptions
+def AccLoss7 ú -> u || _ ?* A ;
+def AccLoss8 í -> i || _ ?* A ;
+
+def AccLoss AccLoss1 .o. AccLoss2 .o. AccLoss3 .o. AccLoss4 .o. AccLoss5 .o. AccLoss7 .o. AccLoss8;
+
+
+## LETTER ##
+
+
+#address letter changes/deletions here, vowel or consonant
+def TSshift1 {ts} -> {ch} || _i;
+def TSshift2 {ts} -> h || _[ø|u];
+
+def OIshift {ǿi} -> {ai} || [[Ɂ ?] | {ng}] _ Tone+ A;
+def AIshift a -> {ia} || _ C+ ¹ ³; 
+#def AEshift a -> e || _ [C ¹ #]; 
+
+
+def Lett TSshift1 .o. TSshift2 .o. OIshift .o. AIshift;
+
+
+
+### CLEANUP & COMPILATION ###
+
+
+
+#remove temporary markers
+def Cleanup [3M | 1M | A] -> 0;
+
+
+regex Canonicalize(Grammar) .o. ToneChange .o. AccLoss .o. Lett .o. Cleanup; 
+save stack cpa.fomabin

@@ -1,0 +1,150 @@
+Multichar_Symbols [STEM] [N] [ACC] [GEN] [LOC] [NOM] [DEF] [NDEF] [SG] [PL] [V] [NFIN] [1] [2] [3] [PRS] [PST] [FUT] [PRF] [PROG] [POL] [LGSPEC1] [INFM] [HAB] [ANIMATE] {টা|টাকে} {ই|ি} {ছি} {েছি} {ে} {িস} {েছে} {েছিস} {ছে} {ছিস} {ো} {েন} {েছো} {েছেন} {ছো} {ছেন} {বো} {বি} {বে} {বেন} {লাম} {তাম} {েছিলাম} {ছিলাম} {লো} {লি} {তো} {তিস} {েছিলো} {েছিলি} {ছিলো} {ছিলি} {লে} {লেন} {তে} {তেন} {েছিলে} {েছিলেন} {ছিলে} {ছিলেন} {েরা|গুলা} {দেরকে|গুলা} {ের} {দের|গুলার} {ে|তে}
+
+LEXICON Root
+
+[N]:0 Noun;
+[V]:0 Verb;
+
+!!!Noun!!!
+
+LEXICON Noun
+
+[STEM] NomNdef;
+বোন:বোন[ANIMATE] NomNdef;
+ছেলে:ছেলে[ANIMATE] NomNdef;
+তিমি:তিমি[ANIMATE] NomNdef;
+কুকুর:কুকুর[ANIMATE] NomNdef;
+ছাত্র:ছাত্র[ANIMATE] NomNdef;
+বন্ধু:বন্ধু[ANIMATE] NomNdef;
+ব্যক্তি:ব্যক্তি[ANIMATE] NomNdef;
+গাঁজাখোর:গাঁজাখোর[ANIMATE] NomNdef;
+যৌনকর্মী:যৌনকর্মী[ANIMATE] NomNdef;
+প্রতিষ্ঠাতা:প্রতিষ্ঠাতা[ANIMATE] NomNdef;
+শিশু:শিশু[ANIMATE] NomNdef;
+মানুষ:মানুষ[ANIMATE] NomNdef;
+বান্ধবী:বান্ধবী[ANIMATE] NomNdef;
+মিত্র:মিত্র[ANIMATE] NomNdef;
+
+LEXICON NomNdef
+
+[NOM][NDEF]:0   #;
+0               NomDef;
+
+LEXICON NomDef
+[NOM][DEF][SG]:টা    #;
+[NOM][DEF][PL]:{েরা|গুলা}  #;
+0                   AccNdef;
+
+LEXICON AccNdef
+[ACC][NDEF]:0   #;
+0               AccDef;
+
+LEXICON AccDef
+[ACC][DEF][SG]:{টা|টাকে} #;
+[ACC][DEF][PL]:{দেরকে|গুলা} #;
+0 GenNdef;
+
+LEXICON GenNdef
+[GEN][NDEF]:{ের} #;
+0 GenDef;
+
+LEXICON GenDef
+[GEN][DEF][SG]:টার #;
+[GEN][DEF][PL]:{দের|গুলার} #;
+0 LocNdef;
+
+LEXICON LocNdef
+[LOC][NDEF]:{ে|তে} #;
+0 LocDef;
+
+LEXICON LocDef
+[LOC][DEF][SG]:টাতে #;
+[LOC][DEF][PL]:গুলাতে #;
+
+!!!Verbs!!!
+
+LEXICON Verb
+
+[STEM] Nfin;
+ওঠা:উঠা Nfin;
+লেখা:লিখা Nfin;
+খোলা:খুলা Nfin;
+চেনা:চিনা Nfin;
+ঢোকা:ঢুকা Nfin;
+শেখা:শিখা Nfin;
+কেনা:কিনা Nfin;
+চোষা:চুষা Nfin;
+গেলা:গিলা Nfin;
+বোঝা:বুঝা Nfin;
+শোনা:শুনা Nfin;
+খোঁজা:খুঁজা Nfin;
+
+LEXICON Nfin
+[NFIN]:+{তে} #;
+0 FirstPresent;
+
+LEXICON FirstPresent
+[1][PRS]:+{ই|ি} #;
+[PROG][1][PRS]:+{ছি} #;
+[PRF][1][PRS]:+{েছি} #;
+0 SecondPresent;
+
+LEXICON SecondPresent
+[2][POL][PRS]:+{ে} #;
+[2][PRS][LGSPEC1]:+{িস} #;
+[PRF][2][POL][PRS]:+{েছে} #;
+[PRF][2][PRS][LGSPEC1]:+{েছিস} #;
+[PROG][2][POL][PRS]:+{ছে} #;
+[PROG][2][PRS][LGSPEC1]:+{ছিস} #;
+0 ThirdPresent;
+
+LEXICON ThirdPresent
+[3][INFM][PRS]:+{ো} #;
+[3][POL][PRS]:+{েন} #;
+[PRF][3][INFM][PRS]:+{েছো} #;
+[PRF][3][POL][PRS]:+{েছেন} #;
+[PROG][3][INFM][PRS]:+{ছো} #;
+[PROG][3][POL][PRS]:+{ছেন} #;
+0 FirstFuture;
+
+LEXICON FirstFuture
+[1][FUT]:+{বো} #;
+0 SecondFuture;
+
+LEXICON SecondFuture
+[2][FUT][LGSPEC1]:+{বি} #;
+[2][POL][FUT]:+{বে} #;
+0 ThirdFuture;
+
+LEXICON ThirdFuture
+[3][INFM][FUT]:+{বে} #;
+[3][POL][FUT]:+{বেন} #;
+0 FirstPast;
+
+LEXICON FirstPast
+[1][PST]:+{লাম} #;
+[HAB][1][PST]:+{তাম} #;
+[PRF][1][PST]:+{েছিলাম} #;
+[PROG][1][PST]:+{ছিলাম} #;
+0 SecondPast;
+
+LEXICON SecondPast
+[2][POL][PST]:+{লো} #;
+[2][PST][LGSPEC1]:+{লি} #;
+[HAB][2][POL][PST]:+{তো} #;
+[HAB][2][PST][LGSPEC1]:+{তিস} #;
+[PRF][2][POL][PST]:+{েছিলো} #;
+[PRF][2][PST][LGSPEC1]:+{েছিলি} #;
+[PROG][2][POL][PST]:+{ছিলো} #;
+[PROG][2][PST][LGSPEC1]:+{ছিলি} #;
+0 ThirdPast;
+
+LEXICON ThirdPast
+[3][INFM][PST]:+{লে} #;
+[3][POL][PST]:+{লেন} #;
+[HAB][3][INFM][PST]:+{তে} #;
+[HAB][3][POL][PST]:+{তেন} #;
+[PRF][3][INFM][PST]:+{েছিলে} #;
+[PRF][3][POL][PST]:+{েছিলেন} #;
+[PROG][3][INFM][PST]:+{ছিলে} #;
+[PROG][3][POL][PST]:+{ছিলেন} #;

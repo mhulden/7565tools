@@ -1,0 +1,134 @@
+source canonicalize.foma
+
+
+#dalagan	nagdalagan	V;PROG;PST 		(okay, need to check gina and na)
+
+#istar	istar	    V;NFIN  (check; / is in the output, data error?)
+#tudlo	magatudlo	V;FUT	(okay; a few errors, need to checkin)
+#tudlo	nagatudlo	V;PRS	(okay; gina and na instead of naga)
+#hular	naghular	V;PST	(okay; gina thing)
+
+
+#desisyon	nagadesisyon pa	V;PRF+PROG;PRS
+#pili	nagpili pa	V;PRF+PROG;PST
+#basa	magabasa pa	V;PRF+PROG;FUT
+
+
+#higda	naghigda na	V;PRF;PST 			(okay, gina thing )		
+#agda	ginaagda na	V;PRF;PRS			(okay, gina thing )	
+#tabo/katabo	matabo na	V;PRF;FUT 	(okay, gina thing )	
+
+#tuon	magatuon	V;PROG;FUT 			(okay, paga maga)	
+#yuhom	nagayuhom	V;PROG;PRS 			(okay, gina nag)
+
+
+def Alphabet [% |%-|%/|a|b|d|e|g|h|i|k|l|m|n|o|p|r|s|t|u|w|y]; 
+def Stem  Alphabet+;
+
+def Grammar   ["[V]" "[PRF+PROG]" "[PRS]"]:{naga} Stem 0:{ pa}|
+ 			  ["[V]" "[PRF+PROG]" "[PST]"]:{nag} Stem 0:{ pa}|
+ 			  ["[V]" "[PRF+PROG]" "[FUT]"]:{maga} Stem 0:{ pa}|
+			  ["[V]" "[PRS]"]:{naga} Stem | 
+			  ["[V]" "[PST]"]:{nag} Stem |
+			  ["[V]" "[FUT]"]:{maga} Stem |
+			  ["[V]" "[NFIN]"]:0 Stem | 
+			  ["[V]" "[PROG]" "[PST]"]:{nag} Stem |
+			  ["[V]" "[PRF]" "[PST]"]:{nag} Stem 0:{ na} | 
+			  ["[V]" "[PRF]" "[PRS]"]:{naga} Stem 0:{ na} | 
+			  ["[V]" "[PRF]" "[FUT]"]:{maga} Stem 0:{ na} | 
+			  ["[V]" "[PROG]" "[FUT]"]:{maga} Stem | 
+			  ["[V]" "[PROG]" "[PRS]"]:{naga} Stem; 
+
+
+
+def FixUpPrs {naga} -> {gina} || .#. _ [a g d a            | 
+									    a k u              |
+									    b a t o n 		   | 
+									    b u k a            | 
+									    b u k a s a n      | 
+									    b u k s a n        |
+									    d u m d o m        | 
+									    k a l l i m t a n  | 
+									    p a t a y          | 
+									    s a b a t 		   |
+									    s i r a  		   | 
+									    s u l i t 		   | 
+									    t a p o s          
+									 ];  
+
+
+def FixUpPrs2 {naga} -> {na} || .#. _ [d u l a 				| 
+									   k i t a 				|
+									   g u s t u h a n
+									];  
+
+
+# some / case to handle ...??? 
+def FixUpFut {maga} -> {ma} || .#. _ [g u s t u h a n | 
+									  k i t a 		  |
+									  d u l a
+									  ]; 
+
+
+def FixUpFut2 {maga} -> {paga} || .#. _ [b u k a     | 
+ 										 b u k s a n
+									   ]; 
+
+
+
+
+def FixUpPst {nag} -> {gin} || .#. _ [a g d a                | 
+									  b u k s a n 			 |
+ 									  b u k a 				 |
+ 									  b a t o n 		     | 
+ 									  d u m d o m  			 |
+ 									  d u l a 				 | 
+ 									  k a l l i m t a n      |
+ 									  p a t a y              |
+ 									  s u l i t              | 
+ 									  s a b a t              | 
+ 									  s i r a  				 |
+ 									  t a p o s              |  
+ 									  d a o g                |
+ 									  d u l a 				 |
+ 									  a k u  
+ 									  ];  
+
+
+# def Cleanup "-" -> 0;
+
+# extract only the 1st stem 
+def cleanUp ?+ @-> 0 || "/" _ .#. .o. "/" -> 0; 
+
+def final Grammar .o. FixUpPrs .o. FixUpPrs2 .o. FixUpFut .o. FixUpFut2 .o. FixUpPst .o. cleanUp; 
+
+regex Canonicalize(final); 
+
+save stack hil.fomabin
+
+# foma -f hil.foma
+# python evalfst.py -t hil | grep '\[V\]\[PRF+PROG\]\[PRS\]'
+# grep "V;PRF+PROG;PRS" hil.trn | wc -l 
+
+
+# python evalfst.py -t hil | grep '\[V\]\[PRS\]' 	| 	11 
+# python evalfst.py -t hil | grep '\[V\]\[PST\]' 	| 	19
+# python evalfst.py -t hil | grep '\[V\]\[FUT\]' 	|   7 
+
+
+# python evalfst.py -t hil | grep '\[V\]\[PRF\]\[PRS\]' |  8 
+# python evalfst.py -t hil | grep '\[V\]\[PRF\]\[PST\]' |  16 
+# python evalfst.py -t hil | grep '\[V\]\[PRF\]\[FUT\]' |  10
+
+# python evalfst.py -t hil | grep '\[V\]\[PRF+PROG\]\[PRS\]' |  10 
+# python evalfst.py -t hil | grep '\[V\]\[PRF+PROG\]\[PST\]' | 	14
+# python evalfst.py -t hil | grep '\[V\]\[PRF+PROG\]\[FUT\]' |  11 
+
+
+
+# trianing: ACCURACY: hil 0.8311990686845169
+# dev: ACCURACY: hil 0.75
+
+
+
+

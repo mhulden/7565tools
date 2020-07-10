@@ -1,0 +1,18 @@
+source canonicalize.foma
+
+read lexc mao.lexc
+define Lex
+
+def C [ g | h | k | m | n | p | r | t | w ];
+def V [ a | e | i | o | ā | ī | ō | ū | u ];
+
+
+def VRule i (i) @-> 0 || V _ a .#. ;
+def Cclean C -> 0 || _ .#.;
+
+def Grammar Lex .o. VRule .o. Cclean;
+
+regex Canonicalize(Grammar);
+
+save stack mao.fomabin
+#watt > mao.att

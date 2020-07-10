@@ -1,0 +1,69 @@
+source canonicalize.foma
+
+def Alphabet [" "|"'"|a|b|d|e|f|g|i|j|k|l|m|n|o|p|r|s|t|u|v|w|y|z|ŋ];
+
+def Stem   Alphabet+;
+
+def Verb   "[V]":0 ;
+
+def Grammar  Verb [
+              "[NFIN]":0 |
+             ["[1]" "[FUT+IMMED]" ]:{naa} | 
+             ["[1]" "[FUT+RMT]" ]:{ndi} | 
+             ["[1]" "[PRS]"]:{n} | 
+             ["[1]" "[PST+RMT]"]:{na} | 
+             ["[2]" "[FUT+IMMED]"]:{onoo} |
+             ["[2]" "[FUT+RMT]"]:{oli} |
+             ["[2]" "[PRS]"]:{o} | 
+             ["[2]" "[PST+RMT]"]:{wak} |  
+             ["[3]" "[FUT+IMMED]"]:{ana} |      
+             ["[3]" "[FUT+RMT]"]:{ali} |  
+             ["[3]" "[PRS]"]:{a} | 
+             ["[INTEN]" "[1]" "[FUT]"]:{sinna} | 
+             ["[INTEN]" "[2]" "[FUT]"]:{tonna} |  
+             ["[INTEN]" "[3]" "[FUT]"]:{tonna} |  
+             ["[INTEN]" "[PL]" "[1]" "[FUT]"]:{tetunna} |  
+             ["[INTEN]" "[PL]" "[2]" "[FUT]"]:{temunna} |  
+             ["[INTEN]" "[PL]" "[3]" "[FUT]"]:{tebanna} | 
+             ["[PL]" "[1]" "[FUT+RMT]"]:{tuli} | 
+             ["[PL]" "[1]" "[PRS]"]:{tu} | 
+             ["[PL]" "[1]" "[FUT+IMMED]"]:{tunaa} | 
+             ["[PL]" "[1]" "[PST+RMT]"]:{twa} | 
+             ["[PL]" "[2]" "[FUT+IMMED]"]:{munaa} | 		 
+             ["[PL]" "[2]" "[FUT+RMT]"]:{muli} | 
+             ["[PL]" "[2]" "[PST+RMT]"]:{mwa} | 
+             ["[PL]" "[3]" "[FUT+IMMED]"]:{banaa} | 
+             ["[PL]" "[3]" "[FUT+RMT]"]:{bali} | 
+             ["[PL]" "[3]" "[PRS]"]:{ba} | 
+             ["[PL]" "[3]" "[PST+RMT]"]:{baa} | 			 	
+             ["[PROG]" "[1]" "[PRS]"]:{nkya} | 
+             ["[PROG]" "[1]" "[PST]"]:{naaka} | 
+             ["[PROG]" "[2]" "[PRS]"]:{oky} | 
+             ["[PROG]" "[2]" "[PST]"]:{waaka} | 
+             ["[PROG]" "[3]" "[PRS]"]:{akya} | 
+             ["[PROG]" "[3]" "[PST]"]:{yaaka} | 	
+             ["[PROG]" "[PL]" "[2]" "[PRS]"]:{mukya} | 	 
+             ["[PROG]" "[PL]" "[3]" "[PST]"]:{baaka} | 	
+             ["[PROG]" "[PL]" "[3]" "[PRS]"]:{bakyala} ]
+			 Stem; 
+regex Canonicalize(Grammar .o. k -> 0 || _ z .o. [l -> r || l ? _ ] .o. o e -> w e .o.  i e -> y e .o. n a e -> n e e .o. n n -> n || .#. _ .o. b a e -> b e || .#. _ .o. y y -> y a .o. s i n n e e -> s i n n e .o. w a k k -> w a k ) ;
+
+save stack lug.fomabin
+watt > lug.att
+
+#elabira	neerabidde	V;1;PST+RCT ??
+#galamira	wagalamidde	V;2;PST+RCT ??
+#ffa	yafudde	V;3;PST+RCT ??
+#ba	yali	V;3;PST+RMT ??
+#ffa	tannafa	V;INTEN;3;FUT ??
+#gamba	tugambye	V;PL;1;PST+RCT ??
+#teka	muteeka	V;PL;2;PRS ?? 
+#buuka	mubuuse	V;PL;2;PST+RCT ??
+#wangula	bawangudde	V;PL;3;PST+RCT ??
+#lwaana	tukyalwana	V;PROG;PL;1;PRS ??
+#kendeza	twakakendeeza	V;PROG;PL;1;PST ??
+#wereza	mwakaweereza	V;PROG;PL;2;PST ??
+#ggulawo	nziguddewo	V;SG;1;PST+RCT ??
+#tunda	otunze	V;SG;2;PST+RCT ??
+#situka	asituse	V;SG;3;PST+RCT ??
+

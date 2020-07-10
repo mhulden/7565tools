@@ -1,0 +1,48 @@
+Multichar_Symbols [V] [1] [2] [3] [SG] [PL] [PST] [HAB] [PRS] [COND] [IND] [PRF] [INDF] [FIN] [FUT] [STEM] [DEF]
+
+LEXICON Root
+
+[V]:0                   PersonNumber;
+[V][FIN]:ku             Stem;
+
+LEXICON PersonNumber
+
+[1][SG]:ni              Cond;
+[2][SG]:u               Cond;
+[3][SG]:a               Cond;
+[1][PL]:tu              Cond;
+[2][PL]:m               Cond;
+[3][PL]:wa              Cond;
+
+LEXICON Cond
+
+[COND][PST]:ngali       Perfect;
+[COND][PRS]:nge         TAM;
+[IND]:0                 TAM;
+
+LEXICON TAM
+
+[PST]:li                Perfect;
+[HAB]:hu                Perfect;
+[PRS][DEF][FIN]:na      Perfect;
+[FUT][FIN]:ta           Perfect;
+[FIN]:0                 Perfect;
+
+
+LEXICON Perfect
+
+[PRF][PST]:me           Indef;
+[PRS]:0                 Indef;
+                        Indef;
+
+LEXICON Indef
+[INDF]:a                Fin;
+                        Fin;
+		  
+LEXICON Fin
+[FIN]:0                 Stem;
+                        Stem;
+		  
+LEXICON Stem
+
+[STEM]                  #;

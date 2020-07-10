@@ -1,0 +1,137 @@
+source canonicalize.foma
+
+
+
+# naʔ¹ma¹	naʔ¹ma¹	V;PFV;LGSPEC2
+# chi³ndaʔ³a⁴	chi³ndaʔ³a⁴	V;IRR (okay)
+
+# ka³si²	nda⁴si²	V;STAT
+# ndo³ko³	ndo⁴ko³	V;IPFV
+
+# ku³-ndi³chi²	ku¹⁴-ndi³chi²	V;IRR;NEG
+# nda³-tu¹u³	ni¹-nda³-tu¹u³	V;PFV;LGSPEC1
+
+
+
+def Alphabet [% |%(|%)|%,|%-|%/|%=|a|b|c|d|e|h|i|j|k|l|m|n|o|p|s|t|u|w|x|y|²|³|¹|ñ|ʔ|⁴]; 
+def Stem Alphabet+;
+
+
+read lexc xty.lexc
+def Lexicon ;
+
+
+
+# need to figure this out 
+# def Change ³ -> ⁴ || Alphabet* _ .#.; 
+# def Change ³ -> ⁴ || .#. Alphabet* _ ; 
+# def Change {¹} -> {¹⁴} || .#. Alphabet* _ ; 
+
+# def Change {³} -> {¹⁴} || .#. ~$³ _ ;
+
+
+def Grammar [	["[V]" "[PFV]" "[LGSPEC1]"]:{LG1ni¹-} Stem | 
+				["[V]" "[PFV]" "[LGSPEC2]"]:{LG2} Stem | 
+				["[V]" "[IRR]"]:0 Stem | 
+				["[V]" "[IPFV]"]:{IP} Stem | 
+				["[V]" "[IRR]" "[NEG]"]:{NG} Stem | 
+				["[V]" "[STAT]"]:0 Stem 
+				]; 
+
+
+# NEG    -----------------------------------------------------------
+def First1To14 {¹} -> {¹⁴} || N G ~$[³ | ¹ | ⁴] _ ;
+def First3To14 {³} -> {¹⁴} || N G ~$[³ | ¹ | ⁴] _ ;
+def First4To14 {⁴} -> {¹⁴} || N G ~$[³ | ¹ | ⁴] _ ;
+# def Last4To14 {⁴} -> {¹⁴}  || N G ?*  _ .#.;
+
+def adjust {¹⁴⁴} -> {¹⁴} || [N G ?*] _ ;
+
+def Neg [First1To14 .o. First3To14 .o. First4To14 .o. adjust]; 
+
+# LGSPEC2 -----------------------------------------------------------
+def First3To13LG2 {³} -> {¹³} || L G 2 ~$[³ | ¹ | ⁴] _ ;
+def First4To14LG2 {⁴} -> {¹⁴} || L G 2 ~$[³ | ¹ | ⁴] _ ;
+def Ku13ToSa13 {ku¹³n} -> {ju¹³n} || L G 2 _ ; 
+def try {kwa¹} -> {xa¹} || L G 2 _ .o. {kwi¹s} -> {si¹s} || L G 2 _; 
+def kwi {kwi} -> {xi} || L G 2 _ ;
+def LG2 [First3To13LG2 .o. First4To14LG2 .o. Ku13ToSa13 .o. kwi .o. try]; 
+
+
+# LGSPEC1 -----------------------------------------------------------
+def Lg1 [{ni¹-kwi¹} -> {ni¹-xi¹} || L G 1]; 
+def Lg1Ku [{ni¹-ku³n} -> {ni¹-ju³n} || L G 1]; 
+def Lg1kwi [{ni¹-kwiʔ} -> {ni¹-xiʔ} || L G 1]; 
+def Lg1kwa [{ni¹-kwa} -> {ni¹-xa} || L G 1]; 
+def First4To14LG1 {⁴} -> {¹⁴} || L G 1 ~$[³ | ¹ | ⁴] _ ;
+
+def LG1Rule Lg1 .o. Lg1Ku .o. Lg1kwi .o. Lg1kwa .o. First4To14LG1 ; 
+
+
+# IPFV    -----------------------------------------------------------
+def First3To4IP {³} -> {⁴} || I P ~$[³ | ¹ | ⁴] _ ;
+def First1To4IP {¹} -> {⁴} || I P ~$[³ | ¹ | ⁴] _ ;
+def adjust {xa⁴⁴} -> {i⁴xa¹⁴} .o. {xi⁴⁴} -> {i⁴xi¹⁴} .o. {xiʔ⁴⁴} -> {yuʔ⁴⁴};  
+def ipfv First3To4IP .o. First1To4IP .o. adjust; 
+
+
+def CleanUp {LG2} -> 0 .o. {LG1} -> 0 .o. {IP} -> 0 .o. {NG} -> 0;  
+
+def TakeFirstSrash ?+ @-> 0 || "/" _ .#. .o. "/" -> 0 .o. " " -> 0; 
+def TakeFirstComma ?+ @-> 0 || "," _ .#. .o. "," -> 0 .o. " " -> 0; 
+
+# regex Canonicalize(Grammar) .o. ipfv .o. Neg .o. LG2 .o. Lg1 .o. CleanUp .o. TakeFirstSrash .o. TakeFirstComma;
+
+
+
+
+def A4 {a⁴A4} -> {a¹⁴}; 
+def IP13 {³A13IP} -> {¹³}; 
+
+def LexcCleanUp {¹} -> {¹⁴} || ~$[³ | ¹ | ⁴] _ ?* [N G];
+def LexcCleanUp2 {¹} -> {⁴} || ~$[³ | ¹ | ⁴] _ ?* [I P];
+
+
+
+def Output [Lexicon .o. LexcCleanUp .o. LexcCleanUp2 .o. A4 .o. IP13] .P. [Canonicalize(Grammar) .o. ipfv .o. Neg .o. LG2 .o. LG1Rule .o. TakeFirstSrash .o. TakeFirstComma] .o. CleanUp;
+regex Output; 
+
+
+
+
+save stack xty.fomabin
+watt > xty.att 
+
+
+# sa³na³[V][IRR][NEG]
+# python evalfstatt.py -t xty  | grep '\[V\]\[IPFV\]' | wc -l,  
+# python evalfstatt.py -t xty  | grep '\[V\]\[IRR\]\[NEG\]' | wc -l
+# python evalfstatt.py -t xty  | grep '\[V\]\[PFV\]\[LGSPEC2\]' | wc -l,  
+# python evalfstatt.py -t xty  | grep '\[V\]\[PFV\]\[LGSPEC1\]' | wc -l, 101 
+# python evalfstatt.py -t xty  | grep '\[V\]\[STAT\]' | wc -l, 22
+# python evalfstatt.py -t xty  | grep '\[V\]\[IRR\] ' | wc -l,  
+
+
+# 							 		| not pass / num instances 
+# grep '\[V\]\[PFV\]\[LGSPEC1\]'    | 81  / 414 			/ 131
+# grep '\[V\]\[PFV\]\[LGSPEC2\]'    | 85  / 424  			/ 110
+# grep '\[V\]\[IRR\]\[NEG\]' 		| 68  / 415 			/ 119 
+# grep '\[V\]\[IRR\] '      		| 4   / 474				/ 242 
+# grep '\[V\]\[IPFV\]' 				| 139 / 431 			/ 113 
+
+# trianing ACCURACY: xty 0.8109004739336493
+# dev 	   ACCURACY: xty 0.7993311036789298
+
+# kiʔ¹bi³[V][IPFV]
+# ndi¹i⁴[V][IRR][NEG]
+
+
+
+
+
+
+
+
+
+
+

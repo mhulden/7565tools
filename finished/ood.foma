@@ -1,0 +1,120 @@
+source oldcanonicalize.foma
+
+### ALPHABET & PARTS ###
+
+#define alphabet & parts
+def Alphabet [% |%ʼ|%-|%:|%:|%`|A|O|C|J|M|O|S|T|a|ă|b|c|d|d̥|e|ĕ|g|h|i|ĭ|j|k|l|m|n|o|p|s|s̥|t|u|w|y|ñ|ŋ|z|̆|̥];
+#from getchar.py:[ |'|-|:|A|C|J|M|O|S|T|`|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|s|t|u|w|y|ñ|ŋ|ʼ|̆|̥]
+
+#apostrophes causing trouble - two kinds?
+#woʼo[V][IPFV][SG][FUT] woʼod SHOULD BE: wo'od
+
+def Vowel [A|O|a|ă|e|ĕ|i|ĭ|o|u];
+def Cons  [%ʼ|%ʼ|C|J|M|O|S|T|b|c|d|d̥|g|h|j|k|l|m|n|p|s|s̥|t|w|y|ñ|ŋ|z|̆|̥];
+
+
+
+### LEXICON ###
+
+
+
+#open defined lexicon
+read lexc ood.lexc
+eliminate flags
+def Lex;
+
+
+
+### GUESSER ###
+
+
+
+def Stem [Alphabet]+ ;
+
+def Guesser [
+       Stem          ["[N]" "[SG]"]:0 |
+       Stem          ["[N]" "[PL]"]:0 |
+       Stem          ["[V]" "[IMP]" "[SG]" "[PRS]"]:{iñ} |
+       Stem          ["[V]" "[IMP]" "[PL]" "[PRS]"]:{iñ} |
+       Stem          ["[V]" "[PRF]" "[SG]" "[PRS]"]:0 |
+       Stem          ["[V]" "[PRF]" "[PL]" "[PRS]"]:0 |
+       Stem          ["[V]" "[IPFV]" "[SG]" "[PRS]"]:0 |
+       Stem          ["[V]" "[IPFV]" "[SG]" "[FUT]"]:{ad} |
+       Stem          ["[V]" "[IPFV]" "[PL]" "[PRS]"]:0 |
+       Stem          ["[V]" "[IPFV]" "[PL]" "[FUT]"]:{ad} ];
+
+
+
+### REDUPLICATION ###
+
+
+
+#reduplication of first onset + nucleus for words with tag [REDUP]
+#mark onset + nucleus with brackets
+def MarkRedup [Cons Vowel] @-> %[ ... %] || "[REDUP]" _;
+#replace tag with misc characters
+def InsertRedup "[REDUP]" -> %[ [Cons Vowel] %];
+#remove brackets
+def RemoveMarks [ %[ | %] ] -> 0;
+
+#Certain characters drop at the end of the redup sequence 
+#CVCV>CVC or CVCV:>CVCV
+def RedupDrop1 %: -> 0 || %]_ ;
+def DropContext [o|k|t|p|s|d|h|y|c];  
+	###l/n/g/w/s̥ are addressed under Class Mods below
+def RedupDrop2 Vowel -> 0 || _ %] DropContext;
+def WtoP w -> p || %] %[ _;
+
+def RedupDrop RedupDrop1 .o. RedupDrop2 .o. WtoP;
+
+def LexGrammar _eq(Lex .o. MarkRedup .o. InsertRedup, %[, %]) .o. RedupDrop .o. RemoveMarks;
+
+def Grammar LexGrammar .P. Guesser;
+
+
+
+### CLASS MODIFICATIONS ###
+
+
+
+#replace lexc placeholders
+def DropX1 [[i g ĭ]|{igid}|{id}|{an}|{pd̥a}][%^X] @-> 0  || _ .#.;
+def DropX2 [d|d̥|g|n|k|s̥|m|e|a][X] @-> 0 || _ .#.;
+def DropV Vowel -> 0 || .#. Cons Vowel Cons _ (Alphabet)+ [%^V] ;
+def DropVCln [%^V] -> 0;
+     #doesn't accomodate s-/S-
+
+def ClassMods DropX1 .o. DropX2 .o. DropV .o. DropVCln;
+
+
+
+### VOWEL CHANGES ###
+
+
+
+def DoubleVowel1 {ad} -> {d} || Vowel _ ;
+def DoubleVowel2 {iñ} -> {ñ} || Vowel _ ;
+def DiaShift1 ĭ -> i || _ [ñ|d];
+def DiaShift2 ă -> a || _ [ñ|d];
+def DiaShift3 ĕ -> e || _ [ñ|d];
+def DiaShift4 [%'|%`] -> %: || _ .#.;
+
+def VowChg  DoubleVowel1 .o. DoubleVowel2 .o. DiaShift1 .o. DiaShift2 .o. DiaShift3 .o. DiaShift4;
+
+
+#def Diacritics i -> ĭ || _ .#.;  #this alone takes it down 3%
+
+
+
+### CLEANUP & COMPILATION ###
+
+
+
+#remove extra capitals from redup step
+def CFix C -> c || C (Cons|Vowel)+ _;
+def MFix M -> m || M (Cons|Vowel)+ _;
+
+def Cleanup CFix .o. MFix;
+
+regex Canonicalize(Grammar) .o. ClassMods .o. VowChg .o. Cleanup; 
+save stack ood.fomabin

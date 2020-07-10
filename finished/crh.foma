@@ -1,0 +1,94 @@
+source canonicalize.foma
+def Alphabet [% |%-|M|R|U|Z|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|y|z|Ç|â|ç|ñ|ö|ü|ğ|İ|ı|ş] ;
+def Stem Alphabet+ ;
+def C [b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|y|z|Ç|ç|ñ|ğ|ş] ;
+def V [a|e|i|o|u|â|ö|ü|İ|ı] ;
+def VoicelessC [k|t|q|p|s|ş|f|h|ç];
+def FrontV [i|e|ü|ö];
+def BackV [a|o|u] ;
+#Back vowel voiceless C
+
+def HardCodedDAT [{ayaq}:0 ["[N]""[DAT]"]:{ayaqğa} | {toqmaq}:0 ["[N]""[DAT]"]:{toqmaqğa}] ; 
+def NDATSuffix1 {ND} -> {qa} || [BackV (Alphabet) VoicelessC |[[l|c|ç] ı q]] _ .#. ;
+def NDATSuffix2 {ND} -> {ğa} || [[BackV|ı] ([C - VoicelessC]) ([C - VoicelessC])|[a q]] _ .#. ;
+def NDATSuffix3 {ND} -> {ke} || FrontV ([VoicelessC| C]) VoicelessC _ .#. ;
+def NDATSuffix4 {ND} -> {ge} || [FrontV ([C - VoicelessC]) ([C - VoicelessC]) | [C r] ] _ .#. ; 
+def NDAT Stem [["[N]""[DAT]"]:{ND}] .o.HardCodedDAT .P. [NDATSuffix1 .o. NDATSuffix2 .o. NDATSuffix3 .o. NDATSuffix4] ;
+
+def NACCSuffix1 {NA} -> {nı} || [BackV (C) (C) | [ı (C) (C)] | â ([r|n])] _ .#. ;
+def NACCSuffix2 {NA} -> {ni} || [FrontV [VoicelessC | (n)] (VoicelessC) | [FrontV|ü] ([C - VoicelessC]) | [i s t] | [i z m] | [e n t] | [(Alphabet) t r] | [ö (Alphabet) (Alphabet) ] | [C - VoicelessC] [C - VoicelessC] | [s i k l | s e r t] | [a l]] _ .#. ;
+def NACC Stem [["[N]""[ACC]"]:{NA}] .o. NACCSuffix1 .o. NACCSuffix2 ;
+
+def NABLSuffix1 {NB} -> {tan} || [BackV|ı] (Alphabet) VoicelessC _ .#. ;
+def NABLSuffix2 {NB} -> {dan} || [[BackV|ı] ([C - VoicelessC]) ([C - VoicelessC])| [a [r|q]] |[â (r)] ] _ .#. ;
+def NABLSuffix3 {NB} -> {ten} || FrontV ([VoicelessC| C]) VoicelessC _ .#. ;
+def NABLSuffix4 {NB} -> {den} || [FrontV ([C - VoicelessC]) ([C - VoicelessC]) | [C r] ] _ .#. ;
+def NABL Stem [["[N]""[ABL]"]:{NB}] .o. NABLSuffix1 .o. NABLSuffix2 .o. NABLSuffix3 .o. NABLSuffix4 ;
+
+def NLOCSuffix1 {NL} -> {ta} || [BackV|ı] (Alphabet) VoicelessC _ .#. ;
+def NLOCSuffix2 {NL} -> {da} || [[BackV|ı] ([C - VoicelessC]) ([C - VoicelessC])| [a [r|q]] | [â ([r|n])] | [" " Alphabet* [i|ı]]] _ .#. ;
+def NLOCSuffix3 {NL} -> {te} || FrontV ([VoicelessC| C]) VoicelessC _ .#. ;
+def NLOCSuffix4 {NL} -> {de} || [FrontV ([C - VoicelessC]) ([C - VoicelessC]) | [C r] ] _ .#. ;
+def NLOC Stem [["[N]""[LOC]"]:{NL}] .o. NLOCSuffix1 .o. NLOCSuffix2 .o. NLOCSuffix3 .o. NLOCSuffix4 ;
+
+def NNOM Stem ["[N]""[NOM]"]:0 ;
+
+def NGENSuffix1 {NG} -> {nıñ} || [BackV (C) (C) | [ı (C) (C)] | â ([r|n])] _ .#. ;
+def NGENSuffix2 {NG} -> {niñ} || [FrontV [VoicelessC | (n)] (VoicelessC) | [FrontV|ü] ([C - VoicelessC]) | [i s t] | [i z m] | [e n t] | [(Alphabet) t r] | [ö (Alphabet) (Alphabet) ] | [C - VoicelessC] [C - VoicelessC] | [s i k l | s e r t] | [a l]] _ .#. ;
+def NGEN Stem [["[N]""[GEN]"]:{NG}] .o. NGENSuffix1 .o. NGENSuffix2 ;
+
+def ADATSuffix1 {AD} -> {qa} || BackV (Alphabet) VoicelessC _ .#. ;
+def ADATSuffix2 {AD} -> {ğa} || [BackV|ı] ([C - VoicelessC]) ([C - VoicelessC]) _ .#. ;
+def ADATSuffix3 {AD} -> {ke} || FrontV ([VoicelessC| C]) VoicelessC _ .#. ;
+def ADATSuffix4 {AD} -> {ge} || [FrontV ([C - VoicelessC]) ([C - VoicelessC]) | [C r] ] _ .#. ;
+def ADAT Stem [["[ADJ]""[DAT]"]:{AD}] .o. ADATSuffix1 .o. ADATSuffix2 .o. ADATSuffix3 .o. ADATSuffix4 ;
+
+def AACCSuffix1 {AA} -> {nı} || [BackV (C) (C) | [ı (C) (C)] | â ([r|n])] _ .#. ;
+def AACCSuffix2 {AA} -> {ni} || [FrontV [VoicelessC | (n)] (VoicelessC) | [FrontV|ü] ([C - VoicelessC]) | [i s t] | [i z m] | [e n t] | [(Alphabet) t r] | [ö (Alphabet) (Alphabet) ] | [C - VoicelessC] [C - VoicelessC] | [s i k l | s e r t] | [a l]] _ .#. ;
+def AACC Stem [["[ADJ]""[ACC]"]:{AA}] .o. AACCSuffix1 .o. AACCSuffix2 ;
+
+def AABLSuffix1 {AB} -> {tan} || [BackV|ı] (Alphabet) VoicelessC _ .#. ;
+def AABLSuffix2 {AB} -> {dan} || [[BackV|ı] ([C - VoicelessC]) ([C - VoicelessC])| [a [r|q]] ] _ .#. ;
+def AABLSuffix3 {AB} -> {ten} || FrontV ([VoicelessC| C]) VoicelessC _ .#. ;
+def AABLSuffix4 {AB} -> {den} || [FrontV ([C - VoicelessC]) ([C - VoicelessC]) | [C r] ] _ .#. ;
+def AABL Stem [["[ADJ]""[ABL]"]:{AB}] .o. AABLSuffix1 .o. AABLSuffix2 .o. AABLSuffix3 .o. AABLSuffix4 ;
+
+def ALOCSuffix1 {AL} -> {ta} || [BackV|ı] (Alphabet) VoicelessC _ .#. ;
+def ALOCSuffix2 {AL} -> {da} || [[BackV|ı] ([C - VoicelessC]) ([C - VoicelessC])| [a [r|q]] ] _ .#. ;
+def ALOCSuffix3 {AL} -> {te} || FrontV ([VoicelessC| C]) VoicelessC _ .#. ;
+def ALOCSuffix4 {AL} -> {de} || [FrontV ([C - VoicelessC]) ([C - VoicelessC]) | [C r] ] _ .#. ;
+def ALOC Stem [["[ADJ]""[LOC]"]:{AL}] .O. ALOCSuffix1 .o. ALOCSuffix2 .o. ALOCSuffix3 .o. ALOCSuffix4 ;
+
+def ANOM Stem ["[ADJ]""[NOM]"]:0 ;
+
+def AGENSuffix1 {AG} -> {nıñ} || [BackV (C) (C) | [ı (C) (C)] | â ([r|n])] _ .#. ;
+def AGENSuffix2 {AG} -> {niñ} || [FrontV [VoicelessC | (n)] (VoicelessC) | [FrontV|ü] ([C - VoicelessC]) | [i s t] | [i z m] | [e n t] | [(Alphabet) t r] | [ö (Alphabet) (Alphabet) ] | [C - VoicelessC] [C - VoicelessC] | [s i k l | s e r t] | [a l]] _ .#. ;
+def AGEN Stem [["[ADJ]""[GEN]"]:{AG}] .o. AGENSuffix1 .o. AGENSuffix2 ;
+
+def VNFIN Stem ["[V]""[NFIN]"]: 0 ;
+
+def INFDel [{maq}|{mek}] -> 0 ;
+def VSG3PRSa [..] -> a || [[BackV|ı] C | a ] _ .#. ;
+def VSG3PRSe [..] -> e || [ö | ü | e | i] (C - y) (C - y) _ .#. ;
+def PRSVCleanup [a|e] -> y || [a|e|i] _ .#. ;
+def VSG3PRS Stem [["[V]""[SG]""[3]""[PRS]"]:0] .o. INFDel .o. VSG3PRSa .o. VSG3PRSe .o. PRSVCleanup ;
+
+def VSG3PST1 {mek} -> {ti} || VoicelessC _ .#. ;
+def VSG3PST2 {maq} -> {dı} ;
+def VSG3PST3 {mek} -> {di} ;
+def VSG3PST Stem [["[V]""[SG]""[3]""[PST]"]:0] .o. VSG3PST1 .o. VSG3PST2 .o. VSG3PST3 ;
+
+
+def VIMPSG2 Stem [["[V]""[IMP]""[SG]""[2]"]:0] .o. INFDel ;
+
+def SpecLemmaRules [{aşımaq}:0 ["[V]""[SG]""[3]""[PRS]"]:{aşıy} |
+    		   {cımşamaq}:0 ["[V]""[SG]""[3]""[PRS]"]:{cımşaa} |
+		   {süymek}:0 ["[V]""[SG]""[3]""[PRS]"]:{süye}];
+
+
+
+
+def Grammar [[SpecLemmaRules | HardCodedDAT]  .P. [NDAT|NACC|NABL|NLOC|NNOM|NGEN|ADAT|AACC|AABL|ALOC|ANOM|AGEN|VNFIN|VSG3PRS|VSG3PST|VIMPSG2]] ;
+regex Canonicalize(Grammar);
+#watt > crh.att
+save stack crh.fomabin

@@ -1,0 +1,64 @@
+source canonicalize.foma
+
+def Alphabet [% |%( | %)|%+|%/|=|a|b|d|e|f|g|h|i|k|l|n|o|p|r|s|t|u|w|x|y|z|á|â|ê|í|î|ñ|ú|û|ă|ĕ|ĭ|ŏ|ŭ|ʔ|ˀ];
+
+def Stem Alphabet+;
+def Cons [b | d | f | g | h | k | l | n | p | r | s | t | w | x | y | z | ñ | ʔ];
+def Vow [a | e | i |o | u | á | â | ê | í | î | ú | û | ă | ĕ | ĭ | ŏ | ŭ ];
+def guOnset [y a | y u| a | b | d x i | d x ĭ | d z \h| d u | l | n | ñ | k | z \h | t [a ˀ | ă | ĕ] | s h | r o ˀ];  
+
+def Word ["[V]" "[HAB]"]:{r+} Stem | ["[V]" "[PFV]"]:{bi+} Stem | ["[V]" "[POT]"]:{gí+} Stem;
+
+#PFV
+def plusRule b i -> b a || .#._ "+" (\"+")+ "+"  ;
+def uRemove u -> 0 || b a %+ _ %+;
+def doubleI i -> 0 || b i %+_ ;
+def guRule b i -> g u || _ %+ guOnset ;
+def liquify b | b w -> l || g u %+ _ Vow \y \d;
+def removeG g -> 0 || b a [%+]+ _ ;
+def abiRule a b i -> d z i || g u %+ _ ;
+def b2r b -> r || g u %+ _ w ;
+def PfvNew plusRule .o. uRemove .o. doubleI .o. guRule .o. liquify .o. removeG .o. abiRule .o. b2r;
+
+#POT
+def gaRule1 g í -> g á || _ %+ a %+;
+def gaRule2 g í -> g â || _ %+ a \%+;
+def geRule g í -> g ê || _ %+ e ;
+def lRule g í %+ l -> t ;
+def kwRule g í %+ b w -> k w ;
+def Palatalization g í %+ -> d x î ||  _ i  ; 
+def PotRules1 gaRule1 .o. gaRule2 .o. geRule .o. lRule .o. kwRule .o. Palatalization;
+
+def dxDevoicing1 g í -> t x î || _ %+ d x i  [ʔ | ˀ] \t; 
+def dxDevoicing2 g í -> t x ĭ || _ %+ d x i [p | b]; 
+def dxDevoicing3 g í -> t x ă || _ %+ d x a ; 
+def dxDevoicing4 g í -> t x â || _ %+ d x a ʔ ; 
+def txRemoveStem d x Vow -> 0 || t x Vow %+ _ ;
+def dxDev dxDevoicing1 .o. dxDevoicing2 .o. dxDevoicing3 .o. dxDevoicing4 .o. txRemoveStem;
+
+def uPlus g í %+ u -> g ú || _ %+;
+def uNotPlus g í %+ u -> g ú || _ \(%+);
+def yaRuleReg g í -> t s h ă || _ %+ y a \ˀ;
+def yaRuleCleanup y a -> 0 || t s h [ă|â] %+ _ ;
+def zToS  g í %+ z -> s || _ \h \ˀ;
+def yaRuleGlottalA g í -> t s h â || _ %+ y a ˀ;
+def yaRuleGlottalU g í -> t s h ŭ u ˀ  || _ %+ y u u ˀ ;
+def yaGlottal3 y u u ˀ -> 0 || t s h ŭ u ˀ %+ _ ;
+def DzToTs g í %+ d z (h) i -> t s (h) ĭ ;
+def PotRules2 uPlus .o. uNotPlus .o. yaRuleReg .o. zToS .o. yaRuleGlottalA .o. yaRuleGlottalU .o. yaRuleCleanup .o. yaGlottal3 .o. DzToTs;
+
+def PotNew PotRules1 .o. dxDev .o. PotRules2 ;
+
+#CLEANUP
+def RemovePlus "+" -> 0;
+def RemoveVow Vow -> 0 || .#. [ [(Cons-r) (Cons) Vow] - g u - b i] _ \[ˀ|ʔ] ;
+def RemoveG2 g -> 0 || g ú _ a;
+def RemoveU u -> 0 || s _ z;
+def RemoveSpaces " " -> 0;
+
+def Grammar Word .o. PfvNew .o. PotNew;
+
+regex Canonicalize(Grammar .o. RemovePlus .o. RemoveVow .o. RemoveG2 .o. RemoveU .o. RemoveSpaces);
+
+save stack zpv.fomabin
+#watt > zpv.att

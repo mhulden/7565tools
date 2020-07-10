@@ -1,0 +1,71 @@
+def Alphabet [a|b|c|d|e|f|g|h|i|k|m|n|o|p|r|s|t|u|v|w|y|z];
+def V [a|e|i|o|u];
+
+def Tags "[V]" | "[PROG]" | "[FUT]" | "[HOD]" | "[PRS]" | "[PST]" | "[SG]" | "[PL]" | "[1]" | "[2]" | "[3]" ;
+
+# A little bit of guesswork for the irregular "kuitika" which has a lot of syncretism
+def Irregular [{kuitika} Tags* "[HOD]" Tags*]:{zvaitika}    |
+              [{kuitika} Tags* "[PST]" Tags*]:{zvakaitika}  |
+              [{kuitika} Tags* "[FUT]" Tags*]:{zvichaitika} |
+              [{kuitika} Tags* "[PRS]" Tags*]:{zvirikuitika} ;
+			  
+def Stem Alphabet+;
+
+def Base 0:{ndiriku+} Stem ["[V]" "[PROG]" "[SG]" "[1]" "[PRS]"]:0 |
+      0:{uriku+} Stem ["[V]" "[PROG]" "[SG]" "[2]" "[PRS]"]:0 |
+      0:{ariku+} Stem ["[V]" "[PROG]" "[SG]" "[3]" "[PRS]"]:0 |
+
+      0:{tiriku+} Stem ["[V]" "[PROG]" "[PL]" "[1]" "[PRS]"]:0 |
+      0:{muriku+} Stem ["[V]" "[PROG]" "[PL]" "[2]" "[PRS]"]:0 |
+      0:{variku+} Stem ["[V]" "[PROG]" "[PL]" "[3]" "[PRS]"]:0 |
+	  	  
+      0:{ndicha+} Stem ["[V]" "[SG]" "[1]" "[FUT]"]:0 |
+      0:{ticha+} Stem ["[V]" "[PL]" "[1]" "[FUT]"]:0 |
+	  0:{nda+} Stem ["[V]" "[SG]" "[1]" "[HOD]"]:0 |
+      0:{ta+} Stem ["[V]" "[PL]" "[1]" "[HOD]"]:0 |
+	  0:{ndino+} Stem ["[V]" "[SG]" "[1]" "[PRS]"]:0 |
+	  0:{tino+} Stem ["[V]" "[PL]" "[1]" "[PRS]"]:0 |
+	  0:{ndaka+} Stem ["[V]" "[SG]" "[1]" "[PST]"]:0 |
+	  0:{taka+} Stem ["[V]" "[PL]" "[1]" "[PST]"]:0 |
+
+      0:{ucha+} Stem ["[V]" "[SG]" "[2]" "[FUT]"]:0 |
+	  0:{mucha+} Stem ["[V]" "[PL]" "[2]" "[FUT]"]:0 |
+	  0:{wa+} Stem ["[V]" "[SG]" "[2]" "[HOD]"]:0 |
+	  0:{ma+} Stem ["[V]" "[PL]" "[2]" "[HOD]"]:0 |
+	  0:{uno+} Stem ["[V]" "[SG]" "[2]" "[PRS]"]:0 |
+	  0:{muno+} Stem ["[V]" "[PL]" "[2]" "[PRS]"]:0 |
+	  0:{waka+} Stem ["[V]" "[SG]" "[2]" "[PST]"]:0 |
+	  0:{maka+} Stem ["[V]" "[PL]" "[2]" "[PST]"]:0 |
+
+	  0:{acha+} Stem ["[V]" "[SG]" "[3]" "[FUT]"]:0 |	  
+	  0:{vacha+} Stem ["[V]" "[PL]" "[3]" "[FUT]"]:0 |
+	  0:{a+} Stem ["[V]" "[SG]" "[3]" "[HOD]"]:0 |
+	  0:{va+} Stem ["[V]" "[PL]" "[3]" "[HOD]"]:0 |
+	  0:{ano+} Stem ["[V]" "[SG]" "[3]" "[PRS]"]:0 |
+	  0:{vano+} Stem ["[V]" "[PL]" "[3]" "[PRS]"]:0 |
+	  0:{aka+} Stem ["[V]" "[SG]" "[3]" "[PST]"]:0 |
+	  0:{vaka+} Stem ["[V]" "[PL]" "[3]" "[PST]"]:0 ;
+	  
+def Hiatus i -> 0 || V "+" _ [?-t-s-m];
+
+# aka+ita > akaita
+# maka+ipa > makapa
+# ma+inwa > manwa
+# taka+idya > takadya
+# ucha+ipa > uchapa
+# taka+irwa > takarwa
+# ndicha+irwa > ndicharwa
+# mucha+iva > muchava
+# ta+ida > tada
+# taka+ifa > takafa
+# ano+ita > anota
+# waka+irwa > wakarwa
+# va+irwa > varwa
+# taka+inwa > takanwa
+
+def Cleanup "+" -> 0;
+
+regex Irregular .P. [Base .o. Hiatus .o. Cleanup];
+
+save stack sna.fomabin
+watt > sna.att

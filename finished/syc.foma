@@ -1,0 +1,15 @@
+source canonicalize.foma
+
+def alpha [ܐ|ܒ|ܓ|ܕ|ܗ|ܘ|ܙ|ܚ|ܛ|ܝ|ܟ|ܠ|ܡ|ܢ|ܣ|ܥ|ܦ|ܨ|ܩ|ܪ|ܫ|ܬ];
+
+
+read lexc syc.lexc
+def Lex; 
+
+def cleanup %+ -> 0;
+
+
+regex Canonicalize(Lex .o. cleanup) ;
+
+save stack syc.fomabin
+#watt > syc.att

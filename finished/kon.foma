@@ -14,8 +14,8 @@ def Base   Verb [Tense Stem | Stem Past];
 
 def UAssim U -> o || _ [s o s i l a | t u t a n a] .o. U -> u;
 
-def Grammar Base .o. UAssim;
+def Grammar Base ;
 
-regex Canonicalize(Grammar);
+regex Canonicalize(Grammar .o. UAssim);
 
 save stack kon.fomabin

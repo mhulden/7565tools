@@ -1,0 +1,432 @@
+Multichar_Symbols [V] [N] [FUT] [PRS] [IPFV] [IMP] [PRF] [PL] [SG] [REDUP] @U.Redup.Y@ @U.Redup.N@ ă d̥ ĕ ĭ s̥ ^X ^V @U.StemChg.Y@ @U.StemChg.N@
+ 
+
+LEXICON Root
+
+          Prefix;
+
+
+LEXICON Prefix
+@U.Redup.N@                                  Prefix2;
+@U.Redup.N@s-:@U.Redup.N@s-                  Prefix2;
+@U.Redup.N@S-:@U.Redup.N@S-                  Prefix2;
+@U.Redup.Y@:@U.Redup.Y@[REDUP] 	       Prefix2;
+@U.Redup.Y@s-:@U.Redup.Y@s-[REDUP] 	       Prefix2;
+@U.Redup.Y@S-:@U.Redup.Y@S-[REDUP] 	       Prefix2;
+
+Lexicon Prefix2
+@U.StemChg.N@    Lemma;
+@U.StemChg.Y@    Stem;
+
+LEXICON Stem !for stem changes
+gi%:g:gi%:k Class5;
+
+ka%:c:we%:c  Class5.5;
+ke%:k:gegok  Class5.5;
+daʼa:ñe%:ñeʼe Class5.5;
+ciñ:ce%:ceñ	   Class5.5;
+
+
+LEXICON Lemma
+
+!!STEMS unchanged stems from Stem
+gi%:g                   Class5;       
+
+ka%:c                     Class5.5;
+ke%:k                     Class5.5;   !this doesn't really work
+daʼa                      Class5.5;
+ciñ	   Class5.5;
+
+
+!!CLASS 1 Redup on plurals
+
+Milga%:n    Class1;
+ba%:ñimad  Class1;
+ban	   Class1;
+ba%:ñimad   Class1;
+bi%:dagĭ   Class1;
+bo%:l	   Class1;
+ca%:ŋgo	   Class1;
+ceggia	   Class1;
+cendad	   Class1;
+ceoj	   Class1;
+ceposid	   Class1;
+cewaj	   Class1;
+ceñ	   Class1;
+daikud̥     Class1;
+da%:d	   Class1;
+da%:k	   Class1;
+dahă	   Class1;
+dai	   Class1;
+doʼag	   Class1;
+elpig	   Class1;
+gaswuakud̥  Class1;
+ga%:t	   Class1;
+gaswua	   Class1;
+gatwidakud̥ Class1;
+gogs	   Class1;
+golonakud̥	   Class1;
+ha%:l	   Class1;
+haiwañ	   Class1;
+hajuñ	   Class1;
+hemajkam	   Class1;
+ha%:s̥añ      Class1;
+haʼa       Class1;
+hi%:wodag	   Class1;
+hu%:c	   Class1;
+hu%:ñ	   Class1;
+huasaʼa	   Class1;
+huc	   Class1;
+hud̥	   Class1;
+huhasaʼa	   Class1;
+huʼul	   Class1;
+jeʼes	   Class1;
+ka%:m	   Class1;
+kahio	   Class1;
+kahon	   Class1;
+kamis̥	   Class1;
+kawyu	   Class1;
+ki%:	   Class1;
+kotoñ	   Class1;
+kownal	   Class1;
+kui	   Class1;
+kuint		Class1;
+ma%:gina	   Class1;
+mad̥ 	   Class1;
+makai	   Class1;
+mas̥camakud̥	   Class1;
+mas̥camdam	   Class1;
+mi%:sa	   Class1;
+mi%:stol	   Class1;
+moʼo      Class1;
+na%:k	   Class1;
+na%:dakud̥   Class1;
+nawoj	   Class1;
+nowĭ	   Class1;
+onpig	   Class1;
+pa%:do	   Class1;
+pa%:l	   Class1;
+pa%:la	   Class1;
+pa%:n	   Class1;
+pa%:nt	   Class1;
+pa%:ntakud̥	   Class1;
+pikcult	   Class1;
+pikcultakud̥	   Class1;
+pisaltakud̥	   Class1;
+potol	   Class1;
+pualt	   Class1;
+si%:s̥p	   Class1;
+si%:s̥pakud̥	   Class1;
+siʼikud̥	   Class1;
+s̥a%:yo	   Class1;
+s̥aliwĭ	   Class1;
+s̥onwuinakud̥	   Class1;
+s̥onwuikud̥    Class1;
+s̥opolk
+oam     Class1;
+tad̥	   Class1;
+tapial	   Class1;
+tianda	   Class1;
+to%:nk	   Class1;
+to%:bĭ     Class1;
+towa	   Class1;
+wacwi	   Class1;
+wainom	   Class1;
+wakial 	   Class1;
+wakon	   Class1;
+wisilo	   Class1;
+wonam	   Class1;
+wowoit	   Class1;
+woʼikud̥	   Class1;
+wosk       Class1;
+wud̥akud̥    Class1;
+ñeok	   Class1;
+ñeʼe	   Class1;
+ʼasuppa	   Class1;
+ʼes̥	   Class1;
+ʼeñigadad	   Class1;
+ʼi%:bhai	   Class1;
+ʼipud̥	   Class1;
+ʼispul	   Class1;
+ʼo%:bĭ 	   Class1;
+ʼo%:gĭ	   Class1;
+ʼonmad	   Class1;
+ʼu%:gk	   Class1;
+ʼuwĭ	   Class1;
+woʼo	   Class1;
+si%:s̥pakud̥  Class1;
+Sinad̥     Class1;
+baga	   Class1;
+cuk	   Class1;
+Cukcu     Class1;
+da%:pk	   Class1;
+gakĭ	   Class1;
+hemajima	   Class1;
+kawi%:magĭ	   Class1;
+kawk	   Class1;
+mohogĭ	   Class1;
+moik	   Class1;
+nakosig   Class1;
+nalas̥magĭ	   Class1;
+namkig	   Class1;
+pa%:ntakud̥ Class1;
+padma	   Class1;
+wagima	   Class1;
+we%:c	   Class1;
+wegĭ	   Class1;
+wihonig	   Class1;
+wuhĭ     Class1;
+
+
+!!CLASS 1.5 guesser, no redup
+
+
+!!CLASS 2  (redup + drop last letter in PRF)
+
+
+gatwid     Class2;
+he%:lwuin     Class2;
+hikck     Class2;            
+hi%:nk	   Class2;
+ko%:s̥	   Class2;
+ma%:k	   Class2;
+med̥        Class2;
+celkon     Class2;
+celpig     Class2;
+dagkon	   Class2;
+hagpig	   Class2;
+him       Class2;
+hukpig	   Class2;
+huks̥an     Class2;
+ʼed̥apig    Class2;
+ʼelkon    Class2;
+ʼonpig	   Class2;
+ʼod̥pig     Class2;
+ñeok       Class2;
+heʼed̥kad   Class2;
+
+
+
+!!CLASS 2.5  (redup + drop last letters - multiple in PRF)
+
+
+wamigid	   Class2.5;
+wamigĭ	   Class2.5;
+ceposid    Class2.5;
+cipkan	   Class2.5;
+
+
+ 
+
+!!CLASS 3 (same as 2 w/o Redup)
+
+
+ceʼewid    Class3;
+wu%:d̥	    Class3;
+a%:gid      Class3;     !not working
+giʼipig     Class3;  
+bisc        Class3;
+golon       Class3;
+hehem       Class3;
+huhuʼid     Class3;
+ʼi%:e       Class3;
+ʼoimed̥      Class3;
+ʼoʼohan     Class3;
+ʼu:hum      Class3;
+ñeid        Class3;
+s̥onhin      Class3;
+wu%:s̥ad     Class3;
+ʼelid       Class3;
+baʼa        Class3;
+ju%:k	     Class3;
+waid        Class3;
+
+
+!!CLASS 3.5 (same as 2.5 w/o Redup)
+
+
+hu%:kajid   Class3.5; 
+gegosid     Class3.5;
+wupd̥a       Class3.5;
+wohocid     Class3.5;
+
+
+!!CLASS 4 (almost same as 1, except [PRF][PL][PRS] doesn't allow redup)
+
+
+tohă         Class4;
+
+
+!!CLASS 4.5 (same as 2, except [PRF][PL][PRS] doesn't allow redup)
+
+
+na%:d	   Class4.5;
+
+
+!!CLASS 5 Stem Changes in PL, yes redup
+
+
+!!CLASS 5.5 Stem Changes in PL, no redup  
+
+!!CLASS 6 same as 1, but extra push for vowel drop
+Ci%:no     Class6;
+kalit      Class6;
+kulañmad	   Class6;
+li%:wa	   Class6;
+lo%:go	   Class6;
+mu%:la 	   Class6;
+to%:lo	   Class6;
+s̥oiga     Class6;
+we%:nag     Class6;
+wu%:lo	   Class6;
+wegid	   Class6;
+
+
+
+LEXICON Class1
+[N][SG]:0			End1;
+[N][PL]:0			End2;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End2;
+[V][PRF][SG][PRS]:0		End1;
+[V][PRF][PL][PRS]:0		End2;
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End2;
+[V][IPFV][PL][FUT]:ad  	End2;
+
+LEXICON Class1.5 !same as foma guesser
+[N][SG]:0			        End1;
+[N][PL]:0			        End1;
+[V][IMP][SG][PRS]:iñ    		End1;
+[V][IMP][PL][PRS]:iñ    		End1;
+[V][PRF][SG][PRS]:0 		       End1;
+[V][PRF][PL][PRS]:0		       End1;  
+[V][IPFV][SG][PRS]:0		        End1;
+[V][IPFV][SG][FUT]:ad  	        End1;
+[V][IPFV][PL][PRS]:0	                End1;
+[V][IPFV][PL][FUT]:ad 	                End1;
+
+LEXICON Class2
+[N][SG]:0			End1;
+[N][PL]:0			End2;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End2;
+[V][PRF][SG][PRS]:X		End1;
+[V][PRF][PL][PRS]:X		End2;
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End2;
+[V][IPFV][PL][FUT]:ad  	End2;
+
+LEXICON Class2.5
+[N][SG]:0			End1;
+[N][PL]:0			End2;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End2;
+[V][PRF][SG][PRS]:^X		End1;
+[V][PRF][PL][PRS]:^X		End2;
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End2;
+[V][IPFV][PL][FUT]:ad  	End2;
+
+LEXICON Class3
+[N][SG]:0			End1;
+[N][PL]:0			End1;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End1;
+[V][PRF][SG][PRS]:X		End1;
+[V][PRF][PL][PRS]:X		End1;
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End1;
+[V][IPFV][PL][FUT]:ad  	End1;
+
+LEXICON Class3.5
+[N][SG]:0			End1;
+[N][PL]:0			End1;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End1;
+[V][PRF][SG][PRS]:^X		End1;
+[V][PRF][PL][PRS]:^X		End1;
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End1;
+[V][IPFV][PL][FUT]:ad  	End1;
+
+LEXICON Class4 
+[N][SG]:0			End1;
+[N][PL]:0			End2;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End2;
+[V][PRF][SG][PRS]:0		End1;
+[V][PRF][PL][PRS]:0		End1;  !only dif from Class1
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End2;
+[V][IPFV][PL][FUT]:ad  	End2;
+
+LEXICON Class4.5
+[N][SG]:0			End1;
+[N][PL]:0			End2;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ		End2;
+[V][PRF][SG][PRS]:X		End1;
+[V][PRF][PL][PRS]:X		End1;  !only dif from Class1
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:0		End2;
+[V][IPFV][PL][FUT]:ad  	End2;
+
+LEXICON Class5 !stem chg redup
+[N][SG]:0			        End1;
+[N][PL]:0			        End4;
+[V][IMP][SG][PRS]:iñ    		End1;    ### should this ahave stm chg
+[V][IMP][PL][PRS]:iñ    		End4;
+[V][PRF][SG][PRS]:0 		       End1;
+[V][PRF][PL][PRS]:0		       End4;  
+[V][IPFV][SG][PRS]:0		        End1;
+[V][IPFV][SG][FUT]:ad  	        End1;
+[V][IPFV][PL][PRS]:0	                End4;
+[V][IPFV][PL][FUT]:ad 	                End4;
+
+LEXICON Class5.5 !stem chg no redup
+[N][SG]:0			        End1;
+[N][PL]:0			        End3;
+[V][IMP][SG][PRS]:iñ    		End1;
+[V][IMP][PL][PRS]:iñ    		End3;
+[V][PRF][SG][PRS]:0 		       End1;
+[V][PRF][PL][PRS]:0		       End3;  
+[V][IPFV][SG][PRS]:0		        End1;
+[V][IPFV][SG][FUT]:ad  	        End1;
+[V][IPFV][PL][PRS]:0	                End3;
+[V][IPFV][PL][FUT]:ad 	                End3;
+
+LEXICON Class6 !drop last vowel of redup
+[N][SG]:0			End1;
+[N][PL]:^V			End2;
+[V][IMP][SG][PRS]:iñ		End1;
+[V][IMP][PL][PRS]:iñ^V		End2;
+[V][PRF][SG][PRS]:0		End1;
+[V][PRF][PL][PRS]:^V		End2;
+[V][IPFV][SG][PRS]:0		End1;
+[V][IPFV][SG][FUT]:ad  	End1;
+[V][IPFV][PL][PRS]:^V		End2;
+[V][IPFV][PL][FUT]:ad^V  	End2;
+
+LEXICON End1
+@U.Redup.N@@U.StemChg.N@   #;
+
+LEXICON End2
+@U.Redup.Y@@U.StemChg.N@   #;
+
+LEXICON End3
+@U.Redup.N@@U.StemChg.Y@   #;
+
+LEXICON End4
+@U.Redup.Y@@U.StemChg.Y@   #;
+
+
+
+

@@ -1,9 +1,3 @@
-#bulala	  ngabulala	V;SG;1;PST+RMT
-#chasisa	ngichasise	V;SG;1;PST+RCT
-#fundisa	ngiyofundisa	V;SG;1;FUT
-#mema	ngimema	V;SG;1;PRS
-#mukela	ngizokwamukela	V;SG;1;FUT+IMMED
-
 source canonicalize.foma
 
 def Alphabet [" "|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|s|t|u|v|w|y|z];

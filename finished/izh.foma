@@ -1,0 +1,41 @@
+def Alphabet [%'|a|d|e|h|i|j|k|l|m|n|o|p|r|s|t|u|v|z|ä|ö|ü|š];
+def C [d|h|j|k|l|m|n|p|r|s|t|v|z|š];
+read lexc izh.lexc
+def Lex;
+
+def BackV [a|o|u];
+def Markers "{p}" | "{ä/i}" | "{s}" | "{z}" | "{ä/öi}" | "{a/i}" | "{k}"| "{v/vv}" | "{p/v/pp}" | "{ä/ö}" | "{z/ss}" | "{z/s/ss}" | "{p/pp}" | "{ä/oi}" | "{a/oi}" | "{m/mm}" | "{k/0}" | "{k/jj/kk}" | "{l/ll}" | "{k/0/kk}" | "{mm/mp/mpp}" |"{ö/öi}" | "{e/i}" | "{t/0}" | "{s/tm}" | "{0/t/tt}" | "{0/h}" | "{n/m/mm}" | "{0/z/ss}" | "{0/z/ks}" | S;
+
+
+def VCopy L -> a // a _ .o. L -> i // i _ .o. L -> u // u _ .o. L -> e // e _ .o. L -> o // o _ .o. L -> ö // ö _;
+
+def ShiftVowel V -> a || ["{a/i}"|"{a/oi}"] (V) _ .o. 
+               V -> ä || ["{ä/i}" | "{ä/öi}" | "{ä/oi}"] (V) _ .o.
+               V -> ö || "{ö/öi}" (V) _ .o. 
+			   V -> i || i (V) _ .o. 
+			   V -> e || e (V) _ .o. 
+			   V -> a || a (V) _ .o. 
+			   V -> u || u (V) _ .o. 
+			   V -> ä || ä (V) _ .o. 
+               X -> i || ["{a/i}"|"{ä/i}"] (X) _ .o.  
+               X (X) @-> {oihe} || ["{ä/oi}" | "{a/oi}"] _ S* .#. .o. X (X) @-> {oi} || ["{ä/oi}"|"{a/oi}"] _ .o.	
+               X (X) @-> {öihe} || ["{ä/öi}" | "{ö/öi}"] _ S* .#. .o. X (X) @-> {öi} || ["{ä/öi}" | "{ö/öi}"] _ ;			   
+
+def Gradation "{0/z/ks}" -> k s, "{0/z/ss}" -> s s, "{n/m/mm}" -> m m , "{0/t/tt}" -> t t ,"{mm/mp/mpp}" -> m p p, ["{k/jj/kk}" | "{k/0/kk}"] -> k k, "{p/v/pp}" -> p p , "{z/s/ss}" -> s s || _ ?* S S .o. # Superstrong grades
+
+"{0/z/ks}" -> z, "{0/z/ss}" -> z,"{n/m/mm}" -> m, "{0/h}" -> h,  "{0/t/tt}" ->  t , "{s/tm}" -> t m , "{mm/mp/mpp}" -> m p , "{s}" -> s s , "{t/0}" -> t, "{l/ll}" -> l l , "{k/jj/kk}" -> k , ["{k/0}" | "{k/0/kk}"] -> k, "{m/mm}" -> m m,  "{z/s/ss}" -> s ,"{z/ss}" -> s s , "{k}" -> k k , "{p}" -> p , "{v/vv}" -> v v, "{p/v/pp}" -> p , "{p/pp}" -> p p || _ ?* S .o. # Strong grades
+
+"{0/z/ks}" -> 0, "{0/z/ss}" -> 0, "{n/m/mm}" -> n, "{0/h}" -> 0, "{0/t/tt}" -> 0, "{s/tm}" -> s, "{mm/mp/mpp}" -> m m , "{z/s/ss}" -> z, "{s}" -> s , "{l/ll}" -> l, "{k/jj/kk}" -> j j, ["{k/0}" | "{k/0/kk}" | "{t/0}"] -> 0, "{m/mm}" -> m, "{k}" -> k , "{v/vv}" -> v , "{p/v/pp}" -> v, "{z/ss}" -> z , "{p}" -> v, "{p/pp}" -> p;  # Weak grades
+			   
+def Raising "{e/i}" -> i || _ ?* R .o. "{e/i}" -> e .o.
+            "{V}" -> i  || _ ?* R .o. "{V}" -> a || a  _ .o. "{V}" -> e || e  _ .o. "{V}" -> u || u  _ .o. "{V}" -> ä || ä _ .o. "{V}" -> ö || ö _ .o. R -> 0;  
+def Harmony1 A -> ä || ä h _ .o. A -> u || u h _ .o. A -> a || a h _ .o. A -> e || i h _ .o. A -> ö || ö h _ ;
+def Harmony2 A -> e || .#. [C|e|i|A]* _ .o. A -> ä , O -> ö , Z -> s || .#. \BackV* _ .o. A -> a, O -> o, Z -> z;
+def GlideF   i -> j || ö _ ä , o _ a;
+
+
+def Cleanup Markers -> 0;
+def Grammar Lex .o. Raising .o. VCopy .o. ShiftVowel .o. Gradation .o. Harmony1 .o. Harmony2 .o. GlideF .o. Cleanup;
+
+regex Grammar;
+save stack izh.fomabin

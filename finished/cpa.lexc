@@ -1,0 +1,464 @@
+Multichar_Symbols [V] [PST] [FUT] [PRS] [IPFV] [IRR] [PL] [SG] [1] [2] [3] @U.Tense.PST@ @U.Tense.PRS@ @U.Tense.FUT@ 13E 12E X1E X2E X3E 1M 3M
+ 
+LEXICON Root
+
+Prefix;
+
+LEXICON Prefix
+
+@U.Tense.PST@:@U.Tense.PST@mi³-     Lemma;
+@U.Tense.PRS@:@U.Tense.PRS@0          Lemma;
+@U.Tense.FUT@:@U.Tense.FUT@0          Lemma;
+
+LEXICON Lemma
+!!CLASS 1
+bēn¹²     Class1;
+chi²+kián²     Class1;
+chi²+ngió²     Class1;
+chi²+ngiú²     Class1;
+chión²     Class1;
+chionɁ¹²     Class1;
+chiú²     Class1;
+chiúgɁ²     Class1;
+dsēn¹²     Class1;
+dsúgɁ²     Class1;
+guian¹²     Class1;
+guión²     Class1;
+guiónɁ²     Class1;
+sianɁ¹²     Class1;
+tsog¹²     Class1;
+
+!!CLASS 2
+chiángɁ¹²   Class2;
+dsiog¹²     Class2;
+guen¹²     Class2;
+hmóɁ¹²     Class2;
+hngiángɁ¹²     Class2;
+hngie¹²     Class2;
+ngái¹²     Class2;
+ngøɁ¹²     Class2;
+rǿnɁ¹²     Class2;
+siág¹²     Class2;
+ti²+dsiog¹     Class2;
+ti²+dso¹     Class2;
+tiu¹²     Class2;
+ɁagɁ²     Class2;
+ɁiúɁ¹²     Class2;
+ɁløaɁ¹²     Class2;
+Ɂméi¹²     Class2;
+Ɂuø¹²     Class2;
+
+!!CLASS 3
+bø²+hmé²     Class3;
+bø²+lḗnɁ²     Class3;
+tión²     Class3;
+ɁéɁ²     Class3;
+ɁmíɁ²     Class3;
+
+!!CLASS 4 (guesser)
+
+!!CLASS 5
+huu¹²     Class5;
+
+!!CLASS 6
+bán²     Class6;
+bén²     Class6;
+bḗn²     Class6;
+bí²     Class6;
+búɁ²     Class6;
+ngǿi²     Class6;
+nió²     Class6;
+nǿɁ²     Class6;
+pø²+hánɁ²     Class6;
+séi²     Class6;
+téiɁ²     Class6;
+tií²     Class6;
+tiú²     Class6;
+tiúg²     Class6;
+tǿɁ²     Class6;
+tsánɁ²     Class6;
+tsǿng²     Class6;
+ɁánɁ²     Class6;
+Ɂén²     Class6;
+Ɂéng²     Class6;
+Ɂí²     Class6;
+ɁiánɁ²     Class6;
+ɁiíɁ²     Class6;
+Ɂlí²     Class6;
+ɁmóɁ²     Class6;
+ɁóɁ²     Class6;
+Ɂúg²     Class6;
+
+!!CLASS 7
+huúɁ²     Class7;
+tangɁ²    Class7;
+
+!!CLASS 8
+búɁ¹²     Class8;
+nēɁ¹²     Class8;
+ɁéɁ¹²     Class8;
+Ɂia¹²     Class8;
+Ɂian²     Class8;
+Ɂmóng¹²     Class8;
+
+!!CLASS 9
+chiogɁ¹²     Class9;
+dsan²     Class9;
+gógɁ¹²     Class9;
+guái²     Class9;
+guianɁ¹²     Class9;
+guiugɁ²     Class9;
+guø¹²     Class9;
+guønɁ¹²     Class9;
+ngēɁ²     Class9;
+niá¹²     Class9;
+nioɁ²     Class9;
+niuɁ³     Class9;
+rain¹²     Class9;
+rónɁ¹²     Class9;
+tan¹²     Class9;
+tanɁ²     Class9;
+tióɁ¹²     Class9;
+tsø²+han¹²     Class9;
+tsog²     Class9;
+tsogɁ²     Class9;
+tson¹²     Class9;
+tsón¹²     Class9;
+tson²     Class9;
+u²+Ɂai¹²     Class9;
+Ɂien²     Class9;
+Ɂiog²     Class9;
+ɁlianɁ²     Class9;
+ɁlogɁ²     Class9;
+Ɂog¹²     Class9;
+
+!!CLASS 10
+chióg¹²     Class10;
+
+
+!!Class 11
+ɁēnɁ¹²    Class11;
+
+
+!!Class 12
+chiag¹²     Class12;
+dsiag¹²     Class12;
+dsie¹²     Class12;
+ngáɁ¹²     Class12;
+ngó¹²     Class12;
+ngøa¹²     Class12;
+nié¹²     Class12;
+nøɁ¹²     Class12;
+rang¹²     Class12;
+tag¹²     Class12;
+tei¹²     Class12;
+teng¹²     Class12;
+tieɁ¹²     Class12;
+tógɁ¹²     Class12;
+tsá¹²     Class12;
+tsēn¹²     Class12;
+tsiɁ¹²     Class12;
+tso¹²     Class12;
+Ɂai¹²     Class12;
+Ɂe¹²     Class12;
+Ɂiei¹²     Class12;
+ɁiéiɁ¹²     Class12;
+Ɂio¹²     Class12;
+ɁliágɁ¹²     Class12;
+ɁlieɁ¹²     Class12;
+ɁliuɁ¹²     Class12;
+ɁnáiɁ¹²     Class12;
+Ɂngieng¹²     Class12;
+Ɂngiéng¹²     Class12;
+Ɂøa¹²     Class12;
+
+!!CLASS 13
+dsian¹²     Class13;
+dsióɁ¹²% hǿg³:dsióɁ¹²   Class13;
+guiágɁ¹²     Class13;
+guiánɁ¹²     Class13;
+guiúnɁ¹²     Class13;
+guǿn¹²     Class13;
+tán¹²     Class13;
+tiánɁ¹²     Class13;
+tion¹²     Class13;
+tsǿɁ¹²     Class13;
+Ɂien¹²     Class13;
+Ɂiog¹²     Class13;
+ɁioɁ¹²     Class13;
+ɁnáɁ¹²     Class13;
+Ɂnē¹²     Class13;
+ɁnióɁ¹²     Class13;
+ɁnóɁ¹²     Class13;
+
+!!CLASS 14 - all 3s
+ɁúgɁ²      Class14;
+ɁónɁ²      Class14;
+Ɂnie¹²     Class14;
+
+!!CLASS 15 - all 13s
+ɁuǿɁ¹²     Class15;
+Ɂug¹²      Class15;
+Ɂuan¹²     Class15;
+Ɂnia¹²     Class15;
+ɁlanɁ¹²    Class15;
+Ɂiá¹²      Class15;
+ɁenɁ¹²     Class15;
+
+
+!!CLASS 15
+
+!!CLASS 16
+
+!!CLASS 17
+
+!!CLASS 18
+rón²     Class18;
+sián²     Class18;
+ti²+dsǿ²     Class18;
+ti²+li¹     Class18;
+
+!!CLASS 18.5
+siúg²     Class18.5;
+tai²     Class18.5;
+tsanɁ¹²     Class18.5;
+tsén²     Class18.5;
+tsø²+nióɁ²     Class18.5;
+tsón²     Class18.5;
+ɁónɁ²     Class18.5;
+
+
+
+LEXICON Class1
+[V][IPFV][2][PRS]:13EA         End2;
+[V][IPFV][2][PST]:13EA          End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:13EA     End2;
+[V][IPFV][PL][1][PST]:13EA     End1;
+[V][IPFV][SG][1][PRS]:13EA     End2;
+[V][IPFV][SG][1][PST]:13EA     End1;
+[V][IRR][2][FUT]:13EA          End3;
+[V][IRR][3][FUT]:13E3M          End3;
+[V][IRR][PL][1][FUT]:13E1MA     End3;
+[V][IRR][SG][1][FUT]:13E1MA     End3;
+
+LEXICON Class2
+[V][IPFV][2][PRS]:X3EA         End2;
+[V][IPFV][2][PST]:X3EA          End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:X3EA     End2;
+[V][IPFV][PL][1][PST]:X3EA     End1;
+[V][IPFV][SG][1][PRS]:X3EA     End2;
+[V][IPFV][SG][1][PST]:X3EA     End1;
+[V][IRR][2][FUT]:X3EA          End3;
+[V][IRR][3][FUT]:X1E          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:X3EA     End3;
+
+LEXICON Class3
+[V][IPFV][2][PRS]:A         End2;
+[V][IPFV][2][PST]:A          End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:A     End2;
+[V][IPFV][PL][1][PST]:A     End1;
+[V][IPFV][SG][1][PRS]:A     End2;
+[V][IPFV][SG][1][PST]:A     End1;
+[V][IRR][2][FUT]:X3E1MA     End3;
+[V][IRR][3][FUT]:3M          End3;
+[V][IRR][PL][1][FUT]:X3E1MA     End3;
+[V][IRR][SG][1][FUT]:X3E1MA     End3;
+
+LEXICON Class5
+[V][IPFV][2][PRS]:X3EA         End2;
+[V][IPFV][2][PST]:X3EA          End1;
+[V][IPFV][3][PRS]:12E              End2;
+[V][IPFV][3][PST]:12E              End1;
+[V][IPFV][PL][1][PRS]:X3EA     End2;
+[V][IPFV][PL][1][PST]:X2EA     End1;
+[V][IPFV][SG][1][PRS]:12EA     End2;
+[V][IPFV][SG][1][PST]:A     End1;
+[V][IRR][2][FUT]:X3EA       End3;
+[V][IRR][3][FUT]:X1E          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:A            End3;
+
+LEXICON Class6
+[V][IPFV][2][PRS]:12EA         End2;
+[V][IPFV][2][PST]:12EA          End1;
+[V][IPFV][3][PRS]:12E              End2;
+[V][IPFV][3][PST]:12E              End1;
+[V][IPFV][PL][1][PRS]:12EA     End2;
+[V][IPFV][PL][1][PST]:12EA     End1;
+[V][IPFV][SG][1][PRS]:X2EA     End2;
+[V][IPFV][SG][1][PST]:X2EA     End1;
+[V][IRR][2][FUT]:13EA        End3;
+[V][IRR][3][FUT]:0          End3;
+[V][IRR][PL][1][FUT]:13EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class7
+[V][IPFV][2][PRS]:X2EA         End2;
+[V][IPFV][2][PST]:X2EA          End1;
+[V][IPFV][3][PRS]:X2E              End2;
+[V][IPFV][3][PST]:X2E              End1;
+[V][IPFV][PL][1][PRS]:X2EA     End2;
+[V][IPFV][PL][1][PST]:X2EA     End1;
+[V][IPFV][SG][1][PRS]:12EA     End2;
+[V][IPFV][SG][1][PST]:12EA     End1;
+[V][IRR][2][FUT]:X3EA        End3;
+[V][IRR][3][FUT]:X2E          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class8
+[V][IPFV][2][PRS]:A         End2;
+[V][IPFV][2][PST]:A          End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:A     End2;
+[V][IPFV][PL][1][PST]:A     End1;
+[V][IPFV][SG][1][PRS]:A     End2;
+[V][IPFV][SG][1][PST]:A     End1;
+[V][IRR][2][FUT]:13EA        End3;
+[V][IRR][3][FUT]:X1E          End3;
+[V][IRR][PL][1][FUT]:X1EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class9
+[V][IPFV][2][PRS]:A         End2;
+[V][IPFV][2][PST]:A            End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:A     End2;
+[V][IPFV][PL][1][PST]:A     End1;
+[V][IPFV][SG][1][PRS]:A     End2;
+[V][IPFV][SG][1][PST]:A     End1;
+[V][IRR][2][FUT]:X1EA          End3;
+[V][IRR][3][FUT]:X1E          End3;
+[V][IRR][PL][1][FUT]:X1EA     End3;
+[V][IRR][SG][1][FUT]:X1EA     End3;
+
+LEXICON Class10
+[V][IPFV][PRS][2]:12EA          End2;
+[V][IPFV][PST][2]:A            End1;
+[V][IPFV][PRS][3]:12E              End2;
+[V][IPFV][PST][3]:12E              End1;
+[V][IPFV][PL][PRS][1]:12A     End2;
+[V][IPFV][PL][PST][1]:12A     End1;
+[V][IPFV][SG][PRS][1]:X2EA     End2;
+[V][IPFV][SG][PST][1]:X2EA     End1;
+[V][IRR][FUT][2]:X3EA          End3;
+[V][IRR][FUT][3]:X1E        End3;
+[V][IRR][PL][FUT][1]:X3EA     End3;
+[V][IRR][SG][FUT][1]:X3EA     End3;
+
+LEXICON Class11
+[V][IPFV][2][PRS]:X2EA         End2;
+[V][IPFV][2][PST]:X2EA          End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:X2EA     End2;
+[V][IPFV][PL][1][PST]:X2EA     End1;
+[V][IPFV][SG][1][PRS]:X2EA     End2;
+[V][IPFV][SG][1][PST]:X2EA     End1;
+[V][IRR][2][FUT]:A        End3;
+[V][IRR][3][FUT]:E          End3;
+[V][IRR][PL][1][FUT]:A     End3;
+[V][IRR][SG][1][FUT]:X3EA     End3;
+
+LEXICON Class12
+[V][IPFV][2][PRS]:X2EA         End2;
+[V][IPFV][2][PST]:X2EA       End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:X2EA     End2;
+[V][IPFV][PL][1][PST]:X2EA     End1;
+[V][IPFV][SG][1][PRS]:A     End2;
+[V][IPFV][SG][1][PST]:A     End1;
+[V][IRR][2][FUT]:X3EA          End3;
+[V][IRR][3][FUT]:X1E          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class13
+[V][IPFV][2][PRS]:12EA         End2;
+[V][IPFV][2][PST]:12EA         End1;
+[V][IPFV][3][PRS]:12E             End2;
+[V][IPFV][3][PST]:12E              End1;
+[V][IPFV][PL][1][PRS]:12EA     End2;
+[V][IPFV][PL][1][PST]:12EA     End1;
+[V][IPFV][SG][1][PRS]:12EA     End2;
+[V][IPFV][SG][1][PST]:12EA     End1;
+[V][IRR][2][FUT]:13EA          End3;
+[V][IRR][3][FUT]:X1E          End3;
+[V][IRR][PL][1][FUT]:13EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class14 (all 3s)
+[V][IPFV][2][PRS]:X3EA         End2;
+[V][IPFV][2][PST]:X3EA       End1;
+[V][IPFV][3][PRS]:X3E              End2;
+[V][IPFV][3][PST]:X3E              End1;
+[V][IPFV][PL][1][PRS]:X3EA     End2;
+[V][IPFV][PL][1][PST]:X3EA     End1;
+[V][IPFV][SG][1][PRS]:X3EA     End2;
+[V][IPFV][SG][1][PST]:X3EA     End1;
+[V][IRR][2][FUT]:X3EA          End3;
+[V][IRR][3][FUT]:X3E          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:X3EA     End3;
+
+LEXICON Class15 (all 13s)
+[V][IPFV][2][PRS]:13EA         End2;
+[V][IPFV][2][PST]:13EA       End1;
+[V][IPFV][3][PRS]:13E              End2;
+[V][IPFV][3][PST]:13E              End1;
+[V][IPFV][PL][1][PRS]:13EA     End2;
+[V][IPFV][PL][1][PST]:13EA     End1;
+[V][IPFV][SG][1][PRS]:13EA     End2;
+[V][IPFV][SG][1][PST]:13EA     End1;
+[V][IRR][2][FUT]:13EA          End3;
+[V][IRR][3][FUT]:13E          End3;
+[V][IRR][PL][1][FUT]:13EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class18
+[V][IPFV][2][PRS]:X3EA         End2;
+[V][IPFV][2][PST]:X3EA       End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:X3EA     End2;
+[V][IPFV][PL][1][PST]:X3EA     End1;
+[V][IPFV][SG][1][PRS]:A     End2;
+[V][IPFV][SG][1][PST]:A     End1;
+[V][IRR][2][FUT]:X3EA          End3;
+[V][IRR][3][FUT]:0          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+LEXICON Class18.5
+[V][IPFV][2][PRS]:X3EA         End2;
+[V][IPFV][2][PST]:X3EA       End1;
+[V][IPFV][3][PRS]:0              End2;
+[V][IPFV][3][PST]:0              End1;
+[V][IPFV][PL][1][PRS]:X3EA     End2;
+[V][IPFV][PL][1][PST]:X3EA     End1;
+[V][IPFV][SG][1][PRS]:X3EA     End2;
+[V][IPFV][SG][1][PST]:X3EA     End1;
+[V][IRR][2][FUT]:X3EA          End3;
+[V][IRR][3][FUT]:0          End3;
+[V][IRR][PL][1][FUT]:X3EA     End3;
+[V][IRR][SG][1][FUT]:13EA     End3;
+
+
+LEXICON End1
+@U.Tense.PST@               #;
+
+LEXICON End2
+@U.Tense.PRS@               #;
+
+LEXICON End3
+@U.Tense.FUT@               #;

@@ -1,0 +1,14 @@
+source canonicalize.foma
+
+def Alphabet [% |%(|%)|%+|%-|%=|a|b|d|e|f|g|h|i|j|k|m|n|o|p|r|s|t|u|w|x|y|z|²|¹|á|ä|ë|í|ï|ø|ʉ|ʔ|ạ|ẹ|’];
+
+def Stem Alphabet+;
+
+def Grammar 0:{xtá } Stem ["[V]" "[PRF]" "[SG]" "[1]"]:0 | 0:{xká } Stem ["[V]" "[PRF]" "[SG]" "[2]"]:0 | 0:{xa-n } Stem ["[V]" "[PRF]" "[SG]" "[3]"]:0 | 0:{dá } Stem ["[V]" "[PFV]" "[SG]" "[1]"]:0 | 0:{gá } Stem ["[V]" "[PFV]" "[SG]" "[2]"]:0 | 0:{bi } Stem ["[V]" "[PFV]" "[SG]" "[3]"]:0 | 0:{ga } Stem ["[V]" "[IRR]" "[SG]" "[1]"]:0 | 0:{gi } Stem ["[V]" "[IRR]" "[SG]" "[2]"]:0 |  0:{da } Stem ["[V]" "[IRR]" "[SG]" "[3]"]:0 | 0:{xtá } Stem ["[V]" "[PRF]" "[PL]" "[1]"]:0 | 0:{xkí } Stem ["[V]" "[PRF]" "[PL]" "[2]"]:0 | 0:{xí } Stem ["[V]" "[PRF]" "[PL]" "[3]"]:0 | 0:{dí } Stem ["[V]" "[IPFV]" "[SG]" "[1]" "[PRS]"]:0 | 0:{gí } Stem ["[V]" "[IPFV]" "[SG]" "[2]" "[PRS]"]:0 | 0:{i } Stem ["[V]" "[IPFV]" "[SG]" "[3]" "[PRS]"]:0 | 0:{mí } Stem ["[V]" "[IPFV]" "[SG]" "[1]" "[PST]"]:0 | 0:{g-mí } Stem ["[V]" "[IPFV]" "[SG]" "[2]" "[PST]"]:0 | 0:{mí } Stem ["[V]" "[IPFV]" "[SG]" "[3]" "[PST]"]:0 ;
+
+def Remove [¹|²|%-] -> 0;
+
+regex Remove .o. Canonicalize(Grammar);
+
+#watt > otm.att
+save stack otm.fomabin
